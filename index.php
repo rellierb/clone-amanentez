@@ -12,8 +12,6 @@ include('partials/header.php');
     ?>
 
     <section class="container">
-
-
         <div class="row">
             <div class="col-sm">
                 <div class="card">

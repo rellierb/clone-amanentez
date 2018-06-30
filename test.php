@@ -5,25 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    
 </head>
 <body>
-<input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
-
-<script>
-$(function() {
-  $('input[name="daterange"]').daterangepicker({
-    opens: 'left'
-  }, function(start, end, label) {
-    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-  });
-});
-</script>
-
     
+    
+    
+    
+    
+    <script>
+        var myRooms = "";
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200) {
+                // myRooms = JSON.parse(this.responseText);
+                console.log(this.responseText);
+            }
+        };
+        xmlhttp.open("GET", "rooms/list_room.php", true);
+        xmlhttp.send();
+    </script>
+
 </body>
 </html>
