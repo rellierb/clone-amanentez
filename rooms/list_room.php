@@ -2,6 +2,8 @@
 
 require('../assets/config/connection.php');
 
+$conn = db_connection();
+
 $query = "SELECT * FROM room";
 $result = mysqli_query($conn, $query);
 

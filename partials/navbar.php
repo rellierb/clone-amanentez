@@ -27,7 +27,7 @@
                 <a class="nav-link disabled" href="#">Contact</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="booking/reserve.php">Reserve</a>
+                <a class="nav-link disabled" href="/amanentez/booking/reserve.php">Reserve</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
