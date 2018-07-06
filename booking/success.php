@@ -64,7 +64,7 @@ $db = db_connection();
         $result = mysqli_query($db, $booking_query);
 
         echo '<table class="table">';
-        if(mysqli_num_rows($result) > 0) {
+        if(mysqli_num_rows($result) == 1) {
           while($reservation_details = mysqli_fetch_assoc($result)) {
            if($reservation_details) {
              echo '
@@ -113,7 +113,7 @@ $db = db_connection();
           echo '
             <tr>
               <td>Total Amount</td>
-              <td>P ' . number_format($total_price, 2) . '</td>
+              <td>P ' . number_format(($_SESSION['days_book'] * $total_price), 2) . '</td>
             </tr>';
         }
         echo '</table>';

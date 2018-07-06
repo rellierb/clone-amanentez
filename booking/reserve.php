@@ -26,7 +26,6 @@ include('../partials/header.php');
                 <div class="col-sm">
                     <label for="date">Date</label>
                     <div class="input-group">
-                        
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-calendar-alt"></i></span>
                         </div>
