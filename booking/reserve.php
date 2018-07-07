@@ -41,9 +41,121 @@ include('../partials/header.php');
             <h3>Step 2</h3>
             <p>Rooms</p>
 
-            <div class="row" id="roomsAvailable">
-
-            </div>
+            <div id="roomsAvailable">
+                <div class="row">
+                    <div class="col-sm">
+                        <img class="card-img-top" src="https://picsum.photos/500/?random" alt="Card image cap">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="rooms[]" value="1">
+                            <h5>Standard Room</h5>
+                            <p class="card-text"></p>
+                            <div class="form-group">
+                                <label>Number of Rooms</label>
+                                <select class="form-control" name="guestNum1" style="width: 67%; display: inline-block;">
+                                    <option value="" selected></option>
+                                    <option value="1"></option>
+                                    <option value="2"></option>
+                                    <option value="3"></option>
+                                    <option value="4"></option>
+                                    <option value="5"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <img class="card-img-top" src="https://picsum.photos/500/?random" alt="Card image cap">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="rooms[]" value="2">
+                            <h5>Standard Deluxe</h5>
+                            <p class="card-text ellipsis"></p>
+                            <div class="form-group">
+                                <label>Number of Rooms</label>
+                                <select class="form-control" name="guestNum2" style="width: 67%; display: inline-block;">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <img class="card-img-top" src="https://picsum.photos/500/?random" alt="Card image cap">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="rooms[]" value="3">
+                            <h5>Deluxe</h5>
+                            <p class="card-text ellipsis"></p>
+                            <div class="form-group">
+                                <label>Number of Rooms</label>
+                                <select class="form-control" name="guestNum3" style="width: 67%; display: inline-block;">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>  <!-- .row -->
+                <div class="row">
+                    <div class="col-sm">
+                        <img class="card-img-top" src="https://picsum.photos/500/?random" alt="Card image cap">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="rooms[]" value="4">
+                            <h5>Superior Room</h5>
+                            <p class="card-text ellipsis"></p>
+                            <div class="form-group">
+                                <label>Number of Rooms</label>
+                                <select class="form-control" name="guestNum4" style="width: 67%; display: inline-block;">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <img class="card-img-top" src="https://picsum.photos/500/?random" alt="Card image cap">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="rooms[]" value="5">
+                            <h5>Executive Room</h5>
+                            <p class="card-text ellipsis"></p>
+                            <div class="form-group">
+                                <label>Number of Rooms</label>
+                                <select class="form-control" name="guestNum5" style="width: 67%; display: inline-block;">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <img class="card-img-top" src="https://picsum.photos/500/?random" alt="Card image cap">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="rooms[]" value="6">
+                            <h5>VIP Beach Front</h5>
+                            <p class="card-text ellipsis"></p>
+                            <div class="form-group">
+                                <label>Number of Rooms</label>
+                                <select class="form-control" name="guestNum6" style="width: 67%; display: inline-block;">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- ./row -->
+            </div> <!-- #roomsAvailable-->
 
             <br>
             <hr>
@@ -109,7 +221,7 @@ include('../partials/header.php');
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
                         <label class="form-check-label" for="exampleRadios2">
-                            I have read the <a href="" data-toggle="modal" data-target="#exampleModal">Terms and Condition</a>
+                            I have read the <a href="" data-toggle="modal" data-target="#termsAndCondition">Terms and Condition</a>
                         </label>
                     </div>
                 </div>

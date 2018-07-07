@@ -61,7 +61,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $reservation_id = $db->insert_id;
     $_SESSION['reservation_id'] = $reservation_id;
     foreach($rooms as $k => $v) {
-      $db->query("INSERT INTO booking_rooms(reservation_id, room_id) VALUES($reservation_id, $k)");
+      for($i = 1; $i <= $v; $i++) {
+        $db->query("INSERT INTO booking_rooms(reservation_id, room_id) VALUES($reservation_id, $k)");
+      }
     }
 
 

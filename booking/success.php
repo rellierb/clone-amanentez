@@ -66,7 +66,7 @@ $db = db_connection();
         echo '<table class="table">';
         if(mysqli_num_rows($result) == 1) {
           while($reservation_details = mysqli_fetch_assoc($result)) {
-           if($reservation_details) {
+            if($reservation_details) {
              echo '
               <tr>
                 <td>Reference Number</td>
@@ -92,12 +92,12 @@ $db = db_connection();
                 <td>Guest Number</td>
                 <td>' . $reservation_details['person_count'] . '</td>
               </tr>';
-           }
+            }
           }
         }
 
         $reservation_id = $_SESSION['reservation_id'];
-        $rooms_query = "SELECT * FROM room r INNER JOIN booking_rooms b_r ON b_r.room_id = r.id WHERE b_r.reservation_id = $reservation_id";
+        $rooms_query = "SELECT DISTINCT * FROM room r INNER JOIN booking_rooms b_r ON b_r.room_id = r.id WHERE b_r.reservation_id = $reservation_id";
         $result = mysqli_query($db, $rooms_query);
         $total_price = 0;
         if(mysqli_num_rows($result) > 0) {
@@ -117,7 +117,6 @@ $db = db_connection();
             </tr>';
         }
         echo '</table>';
-    
         ?>
         
       </div>

@@ -14,6 +14,17 @@ $db = db_connection();
 
   $a = $_SESSION['client_details'];
   $reservation_id = intval($a['id']);
+  // print_r($_SESSION['client_details']);
+
+  if(isset($_SESSION['msg_cancel_success'])) {
+    echo '<h5>' . $_SESSION['msg_cancel_success'] . '</h5>';
+  } else {
+    echo '<h5>' . $_SESSION['msg_cancel_failed'] . '</h5>';
+  }
+
+  if(isset($_SESSION['msg_rebook_success'])) {
+    echo '<h5>' . $_SESSION['msg_rebook_success'] . '</h5>';
+  }
 
   echo '<h1>CLIENT DETAILS</h1>';
   echo '
@@ -72,7 +83,7 @@ $db = db_connection();
 
   <?php
 
-  $query = "SELECT * FROM booking_rooms b_r INNER JOIN room r ON b_r.room_id = r.id WHERE b_r.reservation_id = $reservation_id";
+  $query = "SELECT DISTINCT * FROM booking_rooms b_r INNER JOIN room r ON b_r.room_id = r.id WHERE b_r.reservation_id = $reservation_id";
   $result = mysqli_query($db, $query);
   $total_price = 0;
   $rooms = array();
@@ -108,6 +119,10 @@ $db = db_connection();
 
   ?>
   
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reBooking">
+    Rebook Reservation
+  </button>
+
   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#cancelBooking">
     Cancel Booking
   </button>
@@ -115,9 +130,11 @@ $db = db_connection();
   <?php
 
   include('../modal/cancel_booking.php');
+  include('../modal/rebooking.php');
 
   ?>
 
+  <script src="../assets/script/reserve.js"></script>
   <script>
     $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').trigger('focus')
@@ -127,6 +144,7 @@ $db = db_connection();
 
 <?php
 
+include('../partials/scripts.php');
 include('../partials/footer.php');
 
 ?>

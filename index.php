@@ -7,9 +7,11 @@ include('partials/header.php');
     <?php
     
     include('partials/navbar.php');
+    
     include('partials/carousel.php');
 
     ?>
+    
 
     <section class="container">
         <div class="row">
@@ -88,9 +90,10 @@ include('partials/header.php');
         <hr class="featurette-divider">
     </div>
 
-
+    
 <?php 
 
-include('partials/footer.php');
+include('partials/scripts.php');
+include 'partials/footer.php';
 
 ?>

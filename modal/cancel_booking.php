@@ -7,10 +7,12 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="/forms/cancel_booking.php">
+      <form action="../forms/cancel_reservation.php" method="POST">
         <div class="modal-body">
-          <h6>Are you sure you want to cancel your booking</h6>
-
+          <div class="form-group">
+            <label for="reasonCancel">Reason For Cancellation</label>
+            <textarea class="form-control" id="reasonCancel" rows="3" name="reasonCancel"></textarea>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
