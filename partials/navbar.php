@@ -33,7 +33,7 @@
                 <a class="nav-link disabled" href="/amanentez/reservation/index.php">Reservation Status</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="/amanentez/suggestion/index.php">Reservation Status</a>
+                <a class="nav-link disabled" href="/amanentez/suggestion/index.php">Suggestion</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
