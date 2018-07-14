@@ -5,7 +5,13 @@ include('../partials/header.php');
 ?>
     <?php
 
-    include('../partials/navbar.php');
+    if($_SESSION['account_type'] == 'Administrator') {
+        include('../partials/admin_dashboard.php');
+    } else if($_SESSION['account_type'] == 'Front Desk') {
+        include('../partials/frontdesk_dashboard.php');
+    } else {
+        include('../partials/navbar.php');
+    }
     
     ?>
 
@@ -19,7 +25,7 @@ include('../partials/header.php');
                 <div class="col-sm">
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="capacity">Guest Number:</label>
-                        <input type="number" name="guestNumber" class="form-control" id="inputPassword2" required>
+                        <input type="number" name="guestNumber" class="form-control" required>
                     </div>
                 </div>
         

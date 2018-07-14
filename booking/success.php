@@ -95,7 +95,7 @@ $db = db_connection();
             }
           }
         }
-
+        
         $reservation_id = $_SESSION['reservation_id'];
         $rooms_query = "SELECT DISTINCT * FROM room r INNER JOIN booking_rooms b_r ON b_r.room_id = r.id WHERE b_r.reservation_id = $reservation_id";
         $result = mysqli_query($db, $rooms_query);
