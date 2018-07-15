@@ -1,0 +1,24 @@
+* maximum persons allowed including extra persons or children
+
+* reservation details ref number to be to client email
+
+* bank: BPI 
+
+* include: status
+
+* admin option to delete record on reservation details (may back up copy)
+
+* 7 days reservation validity - automatic termination
+
+* rebook - rooms and date
+
+* attach photo - pending
+
+* upon approval ni admin at receptionist - confirmed
+
+* rebooking - payment confirmation first status
+
+* friday or weekend reservation/payment, booking monday
+
+
+
