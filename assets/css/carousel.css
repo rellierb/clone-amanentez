@@ -6,8 +6,7 @@ body {
     padding-bottom: 3rem;
     color: #5a5a5a;
   }
-  
-  
+
   /* CUSTOMIZE THE CAROUSEL
   -------------------------------------------------- */
   
@@ -25,6 +24,7 @@ body {
   .carousel-item {
     height: 32rem;
     background-color: #777;
+    margin-bottom: 600px;
   }
   .carousel-item > img {
     position: absolute;

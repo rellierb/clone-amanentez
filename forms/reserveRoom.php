@@ -41,6 +41,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION["roomsReserved"][$r] = $_POST[$capacity];
   }
 
+  print_r($_rooms);
+  print_r($_SESSION["roomsReserved"]);
+
   $first_name = mysqli_real_escape_string($db, trim($_POST['firstName']));
   $last_name = mysqli_real_escape_string($db, trim($_POST['lastName']));
   $client_address = mysqli_real_escape_string($db, trim($_POST['clientAddress']));
@@ -49,7 +52,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $birthday = mysqli_real_escape_string($db, trim($_POST['birthday']));
 
   $reference_num = mysqli_real_escape_string($db, trim(generateRefNum()));
-  echo $reference_num;
   
   // client information
   $q =  "INSERT INTO client (first_name, last_name, contact_number, email, client_address, birthday, date_registered) VALUES ('$first_name', '$last_name', $contact_number, '$email', '$client_address', '$birthday', NOW())";

@@ -14,14 +14,14 @@ include('partials/header.php');
     
 
     <section class="container">
-        <div class="row">
+        <div class="row" style="padding-top: 50px;"> 
             <div class="col-sm">
                 <div class="card">
                     <img class="card-img-top" src="https://picsum.photos/150/?random" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title">Standard Room</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn btn-primary">View rooms</a>
                     </div>
                 </div>
             </div>
@@ -30,9 +30,9 @@ include('partials/header.php');
                 <div class="card">
                     <img class="card-img-top" src="https://picsum.photos/150/?random" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title">Standard Deluxe</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn btn-primary">View room</a>
                     </div>
                 </div>
             </div>
@@ -41,9 +41,44 @@ include('partials/header.php');
                 <div class="card">
                     <img class="card-img-top" src="https://picsum.photos/150/?random" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title">Deluxe</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn btn-primary">View room</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top: 50px;"> 
+            <div class="col-sm">
+                <div class="card">
+                    <img class="card-img-top" src="https://picsum.photos/150/?random" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Superior room</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">View room</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="card">
+                    <img class="card-img-top" src="https://picsum.photos/150/?random" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Executive Room</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">View room</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="card">
+                    <img class="card-img-top" src="https://picsum.photos/150/?random" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">VIP Beach Front</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">View room</a>
                     </div>
                 </div>
             </div>

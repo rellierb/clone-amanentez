@@ -39,8 +39,9 @@
     $row_count = mysqli_num_rows($room_results); 
     
     if($row_count > 0) {
+      $id = 1;
       while($room_details = mysqli_fetch_assoc($room_results)) {
-          
+        
         if(intval($room_details['id']) % 3 == 1) {
             echo '<div class="row">';
         }
@@ -48,12 +49,12 @@
             <div class="col-sm">
                 <img class="card-img-top" src="https://picsum.photos/500/?random" alt="Card image cap">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="rooms[]" value="1">
+                    <input class="form-check-input" type="checkbox" name="rooms[]" value="'. $id .'">
                     <h5>'. $room_details['type'] .'</h5>
                     <p class="card-text">'. $room_details['simple_description'] .'</p>
                     <div class="form-group">
                         <label>Number of Rooms</label>
-                        <select class="form-control" name="guestNum1" style="width: 67%; display: inline-block;">
+                        <select class="form-control" name="guestNum'.$id.'" style="width: 67%; display: inline-block;">
                             <option value="" selected>0</option>
         ';
         for($k = 1; $k <= $room_details['count(r_s.room_id)']; $k++) {
@@ -69,6 +70,7 @@
         if(intval($room_details['id']) % 3 == 0) {
             echo '</div>';
         }
+        $id++;
       }
     }
     

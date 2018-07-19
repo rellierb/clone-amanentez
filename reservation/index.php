@@ -12,7 +12,7 @@ include('../partials/header.php');
 
   <div class="container">
     <div class="row">
-      <div class="col">
+      <div class="col-4" style="padding-top: 20px;">
         <form action="../forms/viewReserved.php" method="POST">
           <div class="form-group">
             <label for="referenceNo">Reference No.</label>

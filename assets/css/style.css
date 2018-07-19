@@ -1,6 +1,13 @@
 .card {
     margin: 1110px;
+    padding-top: 500px;
 }
+
+.card-set {
+    padding-top: 50px;
+}
+
+
 
 .ellipsis { 
     display: block;

@@ -55,7 +55,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   if(isset($_SESSION['client_details']) && isset($_SESSION['client_room_res'])) {
     header('Location: ../reservation/view_reservation.php');
   } else {
-    // header('Location: ../index.php');
+    header('Location: ../reservation/index.php');
   }
 
 }

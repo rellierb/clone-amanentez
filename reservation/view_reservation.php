@@ -18,7 +18,9 @@ $db = db_connection();
 
   if(isset($_SESSION['msg_cancel_success'])) {
     echo '<h5>' . $_SESSION['msg_cancel_success'] . '</h5>';
-  } else {
+  } 
+  
+  if(isset($_SESSION['msg_cancel_failed'])) {
     echo '<h5>' . $_SESSION['msg_cancel_failed'] . '</h5>';
   }
 
@@ -125,6 +127,10 @@ $db = db_connection();
 
   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#cancelBooking">
     Cancel Booking
+  </button>
+
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="">
+    Upload payment
   </button>
 
   <?php

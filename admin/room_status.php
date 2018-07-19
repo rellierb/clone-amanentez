@@ -73,8 +73,6 @@ if(isset($_SESSION['account_type']) != 'Administrator') {
               }
               echo '</table>';
             }
-
-
             
             ?>
 

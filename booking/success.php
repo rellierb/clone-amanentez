@@ -69,10 +69,6 @@ $db = db_connection();
             if($reservation_details) {
              echo '
               <tr>
-                <td>Reference Number</td>
-                <td>' . $reservation_details['reference_no'] . '</td>
-              </tr>
-              <tr>
                 <td>Check In Date</td>
                 <td>' . $reservation_details['check_in'] . '</td>
               </tr>
@@ -119,6 +115,7 @@ $db = db_connection();
         echo '</table>';
         ?>
         
+        <p>Check email address for your reference number.</p>
       </div>
     </div>
   </div>
