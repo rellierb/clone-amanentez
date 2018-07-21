@@ -10,22 +10,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if(!empty($_POST['referenceNo'])) {
     $reference_no = mysqli_real_escape_string($db, $_POST['referenceNo']);
-  } else {
-    $_SESSION['view_reserve']['reference_no'] = "Reference number is empty";
-  }
+  } 
 
   if(!empty($_POST['firstName'])) {
     $first_name = mysqli_real_escape_string($db, $_POST['firstName']);
-  } else {
-    $_SESSION['view_reserve']['first_name'] = "First Name is empty";
-  }
+  } 
 
   if(!empty($_POST['lastName'])) {
     $last_name = mysqli_real_escape_string($db, $_POST['lastName']);
-  } else {
-    $_SESSION['view_reserve']['first_name'] = "Last Name is empty";
-  }
-
+  } 
+  
+  // Search for the reservation 
   $query = "SELECT * FROM reservation r INNER JOIN client c ON r.client_id = c.id WHERE r.reference_no='$reference_no'";
   $result = mysqli_query($db, $query);
   $reservation_id = 0;
@@ -35,10 +30,27 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       if($client_detail) {
         $_SESSION['client_details'] = $client_detail;
         $reservation_id = $client_detail['id'];
+        
+        if($client_detail['status'] == "CANCELLED") {
+          $_SESSION['view_reserve']['res_error_msg'] = "Reference was not found in the record";
+          header('Location: ../reservation/index.php');
+        }
+
+        // $check_in_date = date("Y-m-d", strtotime($check_date[0]));
+        // $check_out_date = date("Y-m-d", strtotime($check_date[1]));
+
+        // $days_diff = date_diff(date_create($check_in_date), date_create($check_out_date));
+        // $no_of_days = intval($days_diff->format('%d'));
+        // $_SESSION['days_book'] = $no_of_days;
+
       }
     }
+  } else {
+    $_SESSION['view_reserve']['res_error_msg'] = "Reference was not found in the record";
+    header('Location: ../reservation/index.php');
   }
 
+  // Get the reservation details of the client and pass it to the view_reserve.php
   $query= "SELECT * FROM booking_rooms b_r INNER JOIN room ON b_r.room_id = room.id WHERE b_r.reservation_id = $reservation_id";
   $result = mysqli_query($db, $query);
 
@@ -54,8 +66,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if(isset($_SESSION['client_details']) && isset($_SESSION['client_room_res'])) {
     header('Location: ../reservation/view_reservation.php');
-  } else {
-    header('Location: ../reservation/index.php');
   }
 
 }

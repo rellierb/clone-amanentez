@@ -2,6 +2,10 @@
 
 session_start();
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../vendor/autoload.php';
 require('../assets/config/connection.php');
 
 function generateRefNum() {
@@ -74,7 +78,31 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       }
     }
 
-    header('Location: ../booking/success.php');
+    // $mail = new PHPMailer(true);
+
+    // try {
+    //   $message = 'Your reservation reference number is ' . $reference_num;
+
+    //   $mail->SMTPDebug = 1;
+    //   $email->isSMTP();
+    //   $mail->Host = 'smtp.gmail.com';
+    //   $mail->SMTPAuth = true;
+    //   $mail->Username = '';  // Fill this up
+    //   $mail->Password = '';  // Fill this up
+    //   $mail->SMTPSecure = 'tls';
+    //   $mail->Port = 587;
+    //   $mail->setFrom('virayleand@gmail.com');
+    //   $mail->isHTML(true);
+    //   $mail->Subject = 'Amanantez Reservation';
+    //   $mail->Body = $message
+    //   $mail->send();
+    // } catch (Exception $e) {
+    //   $_SESSION['email_error_msg'] = "There\'s an error processing your request";
+    // }
+
+    // header('Location: ../booking/success.php');
+
+
   }
   
 }

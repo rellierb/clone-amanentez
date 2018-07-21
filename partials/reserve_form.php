@@ -27,14 +27,12 @@
     <h3>Step 2</h3>
     <p>Rooms</p>
 
-
     <div id="roomsAvailable">
     <?php
     
     // show all rooms
     $room_query = "SELECT DISTINCT count(r_s.room_id), r.id, r.type, r.simple_description, r.capacity, r.rate FROM room r INNER JOIN room_status r_s ON r.id = r_s.room_id GROUP BY r_s.room_id";
     $room_results = mysqli_query($db, $room_query);
-    
     
     $row_count = mysqli_num_rows($room_results); 
     
