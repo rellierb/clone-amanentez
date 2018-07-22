@@ -36,13 +36,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
           header('Location: ../reservation/index.php');
         }
 
-        // $check_in_date = date("Y-m-d", strtotime($check_date[0]));
-        // $check_out_date = date("Y-m-d", strtotime($check_date[1]));
-
-        // $days_diff = date_diff(date_create($check_in_date), date_create($check_out_date));
-        // $no_of_days = intval($days_diff->format('%d'));
-        // $_SESSION['days_book'] = $no_of_days;
-
       }
     }
   } else {

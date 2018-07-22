@@ -129,14 +129,17 @@ $db = db_connection();
     Cancel Booking
   </button>
 
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="">
-    Upload payment
-  </button>
+  <a href="../uploads/index.php">
+    <button type="button" class="btn btn-primary">
+      Upload payment
+    </button>
+  </a>
 
   <?php
 
   include('../modal/cancel_booking.php');
   include('../modal/rebooking.php');
+  include('../modal/upload_photo.php');
 
   ?>
 
