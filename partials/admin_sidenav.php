@@ -8,15 +8,15 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" >
+        <a class="nav-link" href="#" id="addRoom">
           <span data-feather="file"></span>
-          Add rooms
+          Add room
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="../admin/add_reservation.php">
           <span data-feather="file"></span>
-          Bookings
+          Add Reservation
         </a>
       </li>
       <li class="nav-item">
@@ -26,21 +26,21 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="../admin/reservation_status.php">
           <span data-feather="users"></span>
-          Customers
+          Reservations
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../admin/reservation_status.php">
+          <span data-feather="users"></span>
+          Clients
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
           <span data-feather="bar-chart-2"></span>
           Reports
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="layers"></span>
-          Integrations
         </a>
       </li>
     </ul>

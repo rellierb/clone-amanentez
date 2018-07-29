@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 19, 2018 at 03:25 AM
+-- Generation Time: Jul 29, 2018 at 04:07 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -59,15 +59,6 @@ CREATE TABLE `booking_cancelled` (
   `reason` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `booking_cancelled`
---
-
-INSERT INTO `booking_cancelled` (`reservation_id`, `date_cancelled`, `reason`) VALUES
-(16, '2018-07-07 02:00:44', ''),
-(16, '2018-07-07 02:01:08', ''),
-(16, '2018-07-07 02:02:06', 'sdasdsa');
-
 -- --------------------------------------------------------
 
 --
@@ -121,38 +112,8 @@ CREATE TABLE `booking_rooms` (
 --
 
 INSERT INTO `booking_rooms` (`reservation_id`, `room_id`) VALUES
-(7, 1),
-(7, 3),
-(8, 6),
-(9, 6),
-(10, 6),
-(11, 1),
-(11, 2),
-(12, 1),
-(12, 2),
-(13, 1),
-(13, 2),
-(15, 1),
-(15, 3),
-(16, 5),
-(16, 6),
-(17, 2),
-(17, 3),
-(18, 2),
-(18, 3),
-(18, 4),
-(19, 2),
-(19, 3),
-(19, 4),
-(20, 2),
-(21, 1),
-(21, 1),
-(21, 2),
-(21, 2),
-(21, 3),
-(21, 3),
-(22, 1),
-(22, 2);
+(1, 1),
+(2, 1);
 
 -- --------------------------------------------------------
 
@@ -176,28 +137,8 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`id`, `first_name`, `last_name`, `contact_number`, `email`, `client_address`, `birthday`, `date_registered`) VALUES
-(1, 'Rellie', 'Balagat', '1234567', 'relliebalagat@gmail.com', '86-a tandang sora', '1994-08-25', '2018-07-02 02:24:38'),
-(2, 'Rellie', 'Balagat', '1234567', 'relliebalagat@gmail.com', '86-a tandang sora', '1994-08-25', '2018-07-02 02:29:06'),
-(3, 'Rellie', 'Balagat', '1234567', 'relliebalagat@gmail.com', '86-a tandang sora', '1994-08-25', '2018-07-02 02:32:00'),
-(4, 'Rellie', 'Balagat', '1234567', 'relliebalagat@gmail.com', '86-a tandang sora', '1994-08-25', '2018-07-02 02:32:14'),
-(5, 'Rellie', 'Balagat', '1234567', 'relliebalagat@gmail.com', '86-a tandang sora', '1994-08-25', '2018-07-02 02:32:57'),
-(6, 'Rellie', 'Balagat', '1234567', 'relliebalagat@gmail.com', '86-a tandang sora', '1994-08-25', '2018-07-02 02:33:36'),
-(7, 'Rellie', 'Balagat', '1234567', 'relliebalagat@gmail.com', '86-a tandang sora', '1994-08-25', '2018-07-02 02:52:34'),
-(8, 'Rellie', 'Balagat', '1123456', 'relliebalagat@gmail.com', '86-a tandang sora', '1994-08-25', '2018-07-02 04:15:03'),
-(9, 'Rellie', 'Balagat', '1123456', 'relliebalagat@gmail.com', '86-a tandang sora', '1994-08-25', '2018-07-02 04:15:59'),
-(10, 'Rellie', 'Balagat', '1123456', 'relliebalagat@gmail.com', '86-a tandang sora', '1994-08-25', '2018-07-02 04:18:12'),
-(11, 'Botnog', 'Balagat', '1234567', 'botnog@gmail.com', '86-a tandang sora', '1994-01-25', '2018-07-02 07:14:16'),
-(12, 'Botnog', 'Balagat', '1234567', 'botnog@gmail.com', '86-a tandang sora', '1994-01-25', '2018-07-02 07:36:31'),
-(13, 'Botnog', 'Balagat', '1234567', 'botnog@gmail.com', '86-a tandang sora', '1994-01-25', '2018-07-02 07:37:23'),
-(14, 'Rellie', 'Balagat', '1234556', 'relliebalagat@gmail.com', '86-a tandang sora', '1994-08-25', '2018-07-04 01:58:53'),
-(15, 'Rellie', 'Balagat', '1234556', 'relliebalagat@gmail.com', '86-a tandang sora', '1994-08-25', '2018-07-04 01:59:50'),
-(16, 'Juan', 'Dela Cruz', '1234567', 'jd@gmail.com', 'Quezon City Philippines', '2001-01-01', '2018-07-05 13:47:19'),
-(17, 'Tandang', 'Sora', '1234567', 'ts@gmail.com', '1 Tandang Sora Avenue', '1991-01-01', '2018-07-07 04:15:17'),
-(18, 'Gabriela', 'Silang', '1234567', 'gs@gmail.com', 'Gabriela St.', '1991-01-01', '2018-07-07 04:19:48'),
-(19, 'Cherry', 'Balagat', '987654', 'cgr@gmail.com', '91 Tandang Sora', '1993-07-09', '2018-07-07 04:36:01'),
-(20, 'Cherry', 'Balagat', '987654', 'cgr@gmail.com', '91 Tandang Sora', '1993-07-09', '2018-07-07 04:37:57'),
-(21, 'Leand', 'Viray', '1234567', 'virayleand@gmail.com', 'marikina', '2000-08-01', '2018-07-14 06:38:20'),
-(22, 'Juan Dela Cruz', 'Balagat', '123456', 'jd@gmail.com', 'qweqeqwe', '2000-01-01', '2018-07-14 06:52:55');
+(1, 'test', 'test', '1', 'test@gmail.com', 'test', '2001-01-01', '2018-07-29 10:02:26'),
+(2, 'test2', 'test2', '1234567', 'test2@gmail.com', 'test2', '2001-01-01', '2018-07-29 10:06:07');
 
 -- --------------------------------------------------------
 
@@ -236,7 +177,7 @@ CREATE TABLE `reservation` (
   `check_out` date NOT NULL,
   `client_id` int(11) NOT NULL,
   `person_count` int(11) NOT NULL,
-  `type` varchar(50) NOT NULL DEFAULT 'Reservation',
+  `type` varchar(50) DEFAULT NULL,
   `status` varchar(50) NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `date_updated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
@@ -247,28 +188,8 @@ CREATE TABLE `reservation` (
 --
 
 INSERT INTO `reservation` (`id`, `reference_no`, `check_in`, `check_out`, `client_id`, `person_count`, `type`, `status`, `date_created`, `date_updated`) VALUES
-(1, 'AMNZ-EEEB00D', '0000-00-00', '0000-00-00', 1, 2, 'Reservation', 'FOR PAYMENT', '2018-07-02 02:24:38', '2018-07-02 02:24:38'),
-(2, 'AMNZ-C06852C', '2018-07-03', '2018-07-04', 2, 2, 'Reservation', 'FOR PAYMENT', '2018-07-02 02:29:07', '2018-07-02 02:29:07'),
-(3, 'AMNZ-3B8A930', '2018-07-03', '2018-07-04', 3, 2, 'Reservation', 'FOR PAYMENT', '2018-07-02 02:32:00', '2018-07-02 02:32:00'),
-(4, 'AMNZ-53B6F09', '2018-07-03', '2018-07-04', 4, 2, 'Reservation', 'FOR PAYMENT', '2018-07-02 02:32:15', '2018-07-02 02:32:15'),
-(5, 'AMNZ-8BC9EDD', '2018-07-03', '2018-07-04', 5, 2, 'Reservation', 'FOR PAYMENT', '2018-07-02 02:32:57', '2018-07-02 02:32:57'),
-(6, 'AMNZ-D13CA72', '2018-07-03', '2018-07-04', 6, 2, 'Reservation', 'FOR PAYMENT', '2018-07-02 02:33:37', '2018-07-02 02:33:37'),
-(7, 'AMNZ-505645B', '2018-07-03', '2018-07-04', 7, 2, 'Reservation', 'FOR PAYMENT', '2018-07-02 02:52:35', '2018-07-02 02:52:35'),
-(8, 'AMNZ-668CFE5', '2018-07-06', '2018-07-14', 8, 2, 'Reservation', 'FOR PAYMENT', '2018-07-02 04:15:04', '2018-07-02 04:15:04'),
-(9, 'AMNZ-91AC2E2', '2018-07-06', '2018-07-14', 9, 2, 'Reservation', 'FOR PAYMENT', '2018-07-02 04:15:59', '2018-07-02 04:15:59'),
-(10, 'AMNZ-FBA5D6D', '2018-07-06', '2018-07-14', 10, 2, 'Reservation', 'FOR PAYMENT', '2018-07-02 04:18:13', '2018-07-02 04:18:13'),
-(11, 'AMNZ-FC5286F', '2018-08-05', '2018-08-14', 11, 2, 'Reservation', 'FOR PAYMENT', '2018-07-02 07:14:16', '2018-07-02 07:14:16'),
-(12, 'AMNZ-47907E6', '2018-08-05', '2018-08-14', 12, 2, 'Reservation', 'FOR PAYMENT', '2018-07-02 07:36:31', '2018-07-02 07:36:31'),
-(13, 'AMNZ-9D7FD9A', '2018-08-05', '2018-08-14', 13, 2, 'Reservation', 'FOR PAYMENT', '2018-07-02 07:37:23', '2018-07-02 07:37:23'),
-(14, 'AMNZ-C9A96FD', '2018-07-07', '2018-07-14', 14, 4, 'Reservation', 'FOR PAYMENT', '2018-07-04 01:58:53', '2018-07-04 01:58:53'),
-(15, 'AMNZ-98EE1FB', '2018-07-07', '2018-07-14', 15, 4, 'Reservation', 'FOR PAYMENT', '2018-07-04 01:59:50', '2018-07-04 01:59:50'),
-(16, 'AMNZ-5BDA757', '2018-08-09', '2018-08-11', 16, 3, 'Reservation', 'CANCELLED', '2018-07-05 13:47:20', '2018-07-07 02:02:06'),
-(17, 'AMNZ-906F738', '2018-07-13', '2018-07-14', 17, 4, 'Reservation', 'FOR PAYMENT', '2018-07-07 04:15:17', '2018-07-07 04:15:17'),
-(18, 'AMNZ-E2409F7', '2018-07-08', '2018-07-09', 18, 4, 'Reservation', 'FOR PAYMENT', '2018-07-07 04:19:48', '2018-07-07 04:19:48'),
-(19, 'AMNZ-8A2D130', '2018-07-08', '2018-07-09', 19, 5, 'Reservation', 'FOR PAYMENT', '2018-07-07 04:36:01', '2018-07-07 04:36:01'),
-(20, 'AMNZ-8A80BD9', '0000-00-00', '0000-00-00', 20, 5, 'Reservation', 'FOR PAYMENT', '2018-07-07 04:37:57', '2018-07-07 06:44:55'),
-(21, 'AMNZ-974DE63', '2018-08-03', '2018-08-04', 21, 5, 'Reservation', 'FOR PAYMENT', '2018-07-14 06:38:20', '2018-07-14 06:38:20'),
-(22, 'AMNZ-107A0E0', '2018-08-03', '2018-08-04', 22, 3, 'Reservation', 'FOR PAYMENT', '2018-07-14 06:52:56', '2018-07-14 06:52:56');
+(1, 'AMNZ-06A67A5', '2018-07-30', '2018-07-31', 1, 1, 'Walk In', '', '2018-07-29 10:02:26', '2018-07-29 10:02:26'),
+(2, 'AMNZ-8D80B58', '2018-07-30', '2018-07-31', 2, 1, 'Walk In', '', '2018-07-29 10:06:07', '2018-07-29 10:06:07');
 
 -- --------------------------------------------------------
 
@@ -295,7 +216,10 @@ INSERT INTO `room` (`id`, `type`, `description`, `simple_description`, `capacity
 (3, 'Deluxe', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', ' Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.', 2, '3200.00'),
 (4, 'Superior Room', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', ' Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.', 2, '3500.00'),
 (5, 'Executive Room', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 4, '4200.00'),
-(6, 'VIP Beach Front', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 4, '4900.00');
+(6, 'VIP Beach Front', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 4, '4900.00'),
+(7, 'room1', 'test', 'test', 1, '1.00'),
+(8, 'room1', 'test', 'test', 1, '1.00'),
+(9, 'room1', 'test', 'test', 1, '1.00');
 
 -- --------------------------------------------------------
 
@@ -385,6 +309,7 @@ INSERT INTO `suggestion` (`id`, `full_name`, `email`, `comment`, `rating`) VALUE
 CREATE TABLE `transaction` (
   `id` int(11) NOT NULL,
   `reservation_id` int(11) NOT NULL,
+  `reference_no` varchar(255) NOT NULL,
   `payment_method` varchar(50) NOT NULL,
   `amount_paid` decimal(10,2) NOT NULL,
   `total_amount` decimal(10,2) NOT NULL,
@@ -507,7 +432,7 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `discount`
@@ -519,13 +444,13 @@ ALTER TABLE `discount`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `room_status`
@@ -553,7 +478,7 @@ ALTER TABLE `transaction`
 -- Constraints for table `booking_cancelled`
 --
 ALTER TABLE `booking_cancelled`
-  ADD CONSTRAINT `booking_cancelled_fk0` FOREIGN KEY (`reservation_id`) REFERENCES `reservation` (`id`);
+  ADD CONSTRAINT `booking_cancelled_fk0` FOREIGN KEY (`reservation_id`) REFERENCES `reservation` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `booking_check`
@@ -579,14 +504,14 @@ ALTER TABLE `booking_expenses`
 -- Constraints for table `booking_rooms`
 --
 ALTER TABLE `booking_rooms`
-  ADD CONSTRAINT `booking_rooms_ibfk_1` FOREIGN KEY (`reservation_id`) REFERENCES `reservation` (`id`),
-  ADD CONSTRAINT `booking_rooms_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `room` (`id`);
+  ADD CONSTRAINT `booking_rooms_ibfk_1` FOREIGN KEY (`reservation_id`) REFERENCES `reservation` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `booking_rooms_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `room` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `reservation`
 --
 ALTER TABLE `reservation`
-  ADD CONSTRAINT `reservation_fk0` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`);
+  ADD CONSTRAINT `reservation_fk0` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `room_status`

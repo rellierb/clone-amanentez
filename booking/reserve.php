@@ -9,7 +9,7 @@ $db = db_connection();
 ?>
     <?php
 
-    if (isset($_SESSION['account_type']) && ($_SESSION['account_type']== 'Administrator')) {
+    if (isset($_SESSION['account_type']) && ($_SESSION['account_type'] == 'Administrator')) {
         include('../partials/admin_topnav.php');
     } else if(isset($_SESSION['account_type']) && ($_SESSION['account_type'] == 'Front Desk')) {
         include('../partials/frontdesk_dashboard.php');
@@ -22,7 +22,6 @@ $db = db_connection();
 
     <div class="container">
         <h1 class="text-center">RESERVATION</h1>
-        
         <?php
         
         include('../partials/reserve_form.php');

@@ -28,7 +28,7 @@ if(isset($_SESSION['account_type']) != 'Administrator') {
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Room Status</h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
+            <!-- <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
                 <button class="btn btn-sm btn-outline-secondary">Share</button>
                 <button class="btn btn-sm btn-outline-secondary">Export</button>
@@ -37,7 +37,7 @@ if(isset($_SESSION['account_type']) != 'Administrator') {
                 <span data-feather="calendar"></span>
                 This week
               </button>
-            </div>
+            </div> -->
           </div>
 
           <div class="row">
@@ -50,14 +50,15 @@ if(isset($_SESSION['account_type']) != 'Administrator') {
 
             if(mysqli_num_rows($room_status_result) > 0) {
               echo '
-              <table class="table">
-                <tr>
-                  <td>Room Number</td>
-                  <td>Type</td>
-                  <td>Capacity</td>
-                  <td>Rate</td>
-                  <td>Status</td>
-                </tr>
+              <table class="table table-striped">
+                <thead class="thead-dark">
+                  <th scope="col">Room Number</td>
+                  <th scope="col">Type</td>
+                  <th scope="col">Capacity</td>
+                  <th scope="col">Rate</td>
+                  <th scope="col">Status</td>
+                </thead>
+                <tbody>
               ';
               
               while($room_details = mysqli_fetch_assoc($room_status_result)) {
@@ -71,6 +72,7 @@ if(isset($_SESSION['account_type']) != 'Administrator') {
                 </tr>
                 ';
               }
+              echo '</tbody>';  
               echo '</table>';
             }
             

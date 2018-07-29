@@ -8,6 +8,10 @@ use PHPMailer\PHPMailer\Exception;
 require '../vendor/autoload.php';
 require('../assets/config/connection.php');
 
+if(!($_SESSION['account_type'] == "Administrator" || $_SESSION['account_type'] == 'Front Desk')) {
+  header('Location: ../index.php');
+}
+
 function generateRefNum() {
   // $db = db_connection();
   $ref_number = "AMNZ-";
@@ -21,7 +25,6 @@ function generateRefNum() {
 
   return $ref_number;
 }
-
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $db = db_connection();
@@ -45,17 +48,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION["roomsReserved"][$r] = $_POST[$capacity];
   }
 
-  print_r($_rooms);
-  print_r($_SESSION["roomsReserved"]);
-
   $first_name = mysqli_real_escape_string($db, trim($_POST['firstName']));
   $last_name = mysqli_real_escape_string($db, trim($_POST['lastName']));
   $client_address = mysqli_real_escape_string($db, trim($_POST['clientAddress']));
   $email = mysqli_real_escape_string($db, trim($_POST['email']));
   $contact_number = mysqli_real_escape_string($db, trim($_POST['contactNumber']));
   $birthday = mysqli_real_escape_string($db, trim($_POST['birthday']));
-
   $reference_num = mysqli_real_escape_string($db, trim(generateRefNum()));
+
+  if($_SESSION["account_type"] == "Administrator" || $_SESSION["account_type"] == "Front Desk") {
+    $reservation_type = mysqli_real_escape_string($db, trim($_POST["reservation_type"]));
+    $reservation_status = "";
+  } else {
+    $reservation_type = "Online Reservation";
+    $reservation_status = "FOR PAYMENT";
+  }
   
   // client information
   $q =  "INSERT INTO client (first_name, last_name, contact_number, email, client_address, birthday, date_registered) VALUES ('$first_name', '$last_name', $contact_number, '$email', '$client_address', '$birthday', NOW())";
@@ -67,7 +74,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $client_id = $db->insert_id;
     $_SESSION['client_id'] = $client_id;
   
-    $query = "INSERT INTO reservation(reference_no, check_in, check_out, client_id, person_count, status, date_created, date_updated) VALUES ('$reference_num', '$check_in_date', '$check_out_date', '$client_id', '$guest_number', 'FOR PAYMENT',NOW(), NOW())";
+    $query = "INSERT INTO reservation(reference_no, check_in, check_out, client_id, person_count, type,status, date_created, date_updated) VALUES ('$reference_num', '$check_in_date', '$check_out_date', '$client_id', '$guest_number', '$reservation_type', '$reservation_status' ,NOW(), NOW())";
     $result = mysqli_query($db, $query);
 
     $reservation_id = $db->insert_id;
@@ -78,31 +85,38 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       }
     }
 
-    // $mail = new PHPMailer(true);
+    if(!($_SESSION['account_type'] == "Administrator" || $_SESSION['account_type'] == 'Front Desk')) {
+      // $mail = new PHPMailer(true);
 
-    // try {
-    //   $message = 'Your reservation reference number is ' . $reference_num;
+      // try {
+      //   $message = 'Your reservation reference number is ' . $reference_num;
 
-    //   $mail->SMTPDebug = 1;
-    //   $email->isSMTP();
-    //   $mail->Host = 'smtp.gmail.com';
-    //   $mail->SMTPAuth = true;
-    //   $mail->Username = '';  // Fill this up
-    //   $mail->Password = '';  // Fill this up
-    //   $mail->SMTPSecure = 'tls';
-    //   $mail->Port = 587;
-    //   $mail->setFrom('virayleand@gmail.com');
-    //   $mail->isHTML(true);
-    //   $mail->Subject = 'Amanantez Reservation';
-    //   $mail->Body = $message
-    //   $mail->send();
-    // } catch (Exception $e) {
-    //   $_SESSION['email_error_msg'] = "There\'s an error processing your request";
-    // }
+      //   $mail->SMTPDebug = 1;
+      //   $email->isSMTP();
+      //   $mail->Host = 'smtp.gmail.com';
+      //   $mail->SMTPAuth = true;
+      //   $mail->Username = '';  // Fill this up
+      //   $mail->Password = '';  // Fill this up
+      //   $mail->SMTPSecure = 'tls';
+      //   $mail->Port = 587;
+      //   $mail->setFrom('virayleand@gmail.com');
+      //   $mail->isHTML(true);
+      //   $mail->Subject = 'Amanantez Reservation';
+      //   $mail->Body = $message
+      //   $mail->send();
+      // } catch (Exception $e) {
+      //   $_SESSION['email_error_msg'] = "There\'s an error processing your request";
+      // }
 
-    // header('Location: ../booking/success.php');
+      // header('Location: ../booking/success.php');
 
-
+    } else {
+      $_SESSION["admin_reserve_room_msg_success"] = "Booking is Successfully reserve";
+      header('Location: ../admin/add_reservation.php');
+    }
+    
+  } else {
+    $_SESSION["reservation_msg_error"] = "Booking cannot be processed";    
   }
   
 }
