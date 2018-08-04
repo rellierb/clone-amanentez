@@ -60,7 +60,7 @@ if(!isset($_GET['reference_no'])) {
 
             if($result) {
               while($reservation_details = mysqli_fetch_assoc($result)) {
-                $client_name = $reservation_details["first_name"] . $reservation_details["last_name"];
+                $client_name = $reservation_details["first_name"] . "-" . $reservation_details["last_name"];
                 echo '
                 <table class="table">
                   <tr>
@@ -107,8 +107,9 @@ if(!isset($_GET['reference_no'])) {
 
                 echo '
                   </table>
-                  <a href="process_payment.php?reference_no='.$_GET["reference_no"].'?client_name='.$client_name.'?reservation_id='.$_reservation_details["id"].'" class="btn btn-info">Process Payment</a>
-                  <a href="process_payment.php?reference_no='.$_GET["reference_no"].'?client_name='.$client_name.'?reservation_id='.$_reservation_details["id"].'" class="btn btn-success">Checkout</a>
+                  <a href="process_payment.php?reference_no='.$_GET["reference_no"].'&client_name='.$client_name.'&reservation_id='.$reservation_details["id"].'" class="btn btn-info">Process Payment</a>
+                  <a href="process_payment.php?reference_no='.$_GET["reference_no"].'&client_name='.$client_name.'&reservation_id='.$reservation_details["id"].'" class="btn btn-success">Checkout</a>
+                  <a href="add_expenses.php?reference_no='.$_GET["reference_no"].'&client_name='.$client_name.'&reservation_id='.$reservation_details["id"].'" class="btn btn-warning">Add Expenses</a>
                   <a href="#" class="btn btn-danger">Cancel Reservation</a>
                 ';
               }

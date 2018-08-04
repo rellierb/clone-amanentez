@@ -1,18 +1,17 @@
 <?php
 
-include('partials/header.php');
+include('../partials/header.php');
 
 ?>
 
     <?php
     
-    include('partials/navbar.php');
+    include('../partials/navbar.php');
     
-    include('partials/carousel.php');
+    include('../partials/carousel.php');
 
     ?>
     
-
     <section class="container">
         <div class="row" style="padding-top: 50px;"> 
             <div class="col-sm">
@@ -128,7 +127,7 @@ include('partials/header.php');
     
 <?php 
 
-include('partials/scripts.php');
-include 'partials/footer.php';
+include('../partials/scripts.php');
+include '../partials/footer.php';
 
 ?>

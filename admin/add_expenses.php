@@ -35,7 +35,7 @@ if(!(isset($_GET["reference_no"]) && isset($_GET["client_name"]) && isset($_GET[
     ?>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Process Payment</h1>
+            <h1 class="h2">Add Expenses</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <!-- <div class="btn-group mr-2">
                 <button class="btn btn-sm btn-outline-secondary">Share</button>
@@ -51,7 +51,7 @@ if(!(isset($_GET["reference_no"]) && isset($_GET["client_name"]) && isset($_GET[
           <div class="row">
             <div class="col-8">
               
-              <form action="" method="POST">
+              <form method="POST" action="../forms/admin/reservation_expense.php">
                 <div class="form-group">
                   <label for="">Reference Number:</label>
                   <input type="email" class="form-control" id="" value="<?php echo $reference_no; ?>" readonly>
@@ -62,49 +62,28 @@ if(!(isset($_GET["reference_no"]) && isset($_GET["client_name"]) && isset($_GET[
                   <input type="email" class="form-control" id="" value="<?php echo $client_name; ?>" readonly>
                 </div>
                 
+                <h5>Expenses</h5>
+                
                 <?php 
                 
-                $query = "SELECT DISTINCT * FROM booking_rooms b_r INNER JOIN room r ON b_r.room_id = r.id WHERE b_r.reservation_id = $reservation_id";
+                $query = "SELECT * FROM expenses";
                 $result = mysqli_query($db, $query);
-                $total_price = 0;
 
                 if(mysqli_num_rows($result) > 0) {
-                  echo '
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>Room Type</th>
-                          <th>Quantity</th>
-                          <th>Rate</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                  ';
-                  while($rooms = mysqli_fetch_assoc($result)) {
+                  while($expenses = mysqli_fetch_assoc($result)) {
                     echo '
-                        <tr>
-                          <td>'.$rooms["type"].'</td>
+                        <div class="form-group row">
+                          <label for="" class="col-sm-4 col-form-label">'.$expenses["name"].'</label>
+                          <span class="col-sm-2">'.$expenses["amount"].'</span>
+                          <div class="col-sm-2">
+                            <input type="number" class="form-control" name="expense'.$expenses["id"].'" value="0">
+                          </div>
+                        </div>
                     ';
-
-                    $room_id = $rooms["id"];
-                    $room_query = "SELECT count(room_id) FROM booking_rooms b_r WHERE b_r.reservation_id = $reservation_id AND b_r.room_id = $room_id";
-                    $room_result = mysqli_query($db, $room_query);
-                    while($number_of_rooms = mysqli_fetch_assoc($room_result)) {
-                      echo '<td>' . $number_of_rooms["count(room_id)"] . '</td>';
-                      echo '<td>' . $rooms["rate"] . '</td>';
-                      echo '<td>' . ($number_of_rooms["count(room_id)"] * $rooms["rate"]) . '</td>';
-                      $total_price += ($number_of_rooms["count(room_id)"] * $rooms["rate"]);
-                    }
                   }
-                  echo '<tr><td>Grand Total</td><td></td><td></td><td>'. $total_price .'</td></tr>';
-                  echo '</table>';
+                  echo '<button class="btn btn-primary" type="submit">Add</button>';
+                  echo '';
                 }
-
-
-                
-                
-                
                 ?>
 
               </form>
