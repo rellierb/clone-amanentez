@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       }
     }
 
-    $_SESSION['msg_rebook_success'] = "You have succesfully REBOOK your cancellation";
+    $_SESSION['msg_rebook_success'] = "You have succesfully REBOOK your reservation";
     header('Location: ../reservation/view_reservation.php');
   } else {
     

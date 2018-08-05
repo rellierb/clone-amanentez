@@ -8,9 +8,7 @@ use PHPMailer\PHPMailer\Exception;
 require '../vendor/autoload.php';
 require('../assets/config/connection.php');
 
-if(!($_SESSION['account_type'] == "Administrator" || $_SESSION['account_type'] == 'Front Desk')) {
-  header('Location: ../index.php');
-}
+
 
 function generateRefNum() {
   // $db = db_connection();
@@ -56,7 +54,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $birthday = mysqli_real_escape_string($db, trim($_POST['birthday']));
   $reference_num = mysqli_real_escape_string($db, trim(generateRefNum()));
 
-  if($_SESSION["account_type"] == "Administrator" || $_SESSION["account_type"] == "Front Desk") {
+  if(isset($_SESSION["account_type"])) {
+    if($_SESSION["account_type"] == "Administrator" || $_SESSION["account_type"] == "Front Desk")
     $reservation_type = mysqli_real_escape_string($db, trim($_POST["reservation_type"]));
     $reservation_status = "";
   } else {
@@ -85,7 +84,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       }
     }
 
-    if(!($_SESSION['account_type'] == "Administrator" || $_SESSION['account_type'] == 'Front Desk')) {
+    header('location: ../booking/success.php');
+
+    //if(!($_SESSION['account_type'] == "Administrator" || $_SESSION['account_type'] == 'Front Desk')) {
       // $mail = new PHPMailer(true);
 
       // try {
@@ -110,10 +111,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       // header('Location: ../booking/success.php');
 
-    } else {
-      $_SESSION["admin_reserve_room_msg_success"] = "Booking is Successfully reserve";
-      header('Location: ../admin/add_reservation.php');
-    }
+    // } else {
+    //   $_SESSION["admin_reserve_room_msg_success"] = "Booking is Successfully reserve";
+    //   header('Location: ../admin/add_reservation.php');
+    // }
     
   } else {
     $_SESSION["reservation_msg_error"] = "Booking cannot be processed";    

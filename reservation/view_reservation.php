@@ -16,6 +16,10 @@ $db = db_connection();
   $reservation_id = intval($a['id']);
   // print_r($_SESSION['client_details']);
 
+  if(isset($_SESSION["msg_payment_upload_success"])) {
+    echo '<h5>' . $_SESSION['msg_payment_upload_success'] . '</h5>';
+  }
+
   if(isset($_SESSION['msg_cancel_success'])) {
     echo '<h5>' . $_SESSION['msg_cancel_success'] . '</h5>';
   } 
@@ -152,6 +156,12 @@ $db = db_connection();
 
 
 <?php
+
+unset($_SESSION["msg_payment_upload_success"]);
+unset($_SESSION['msg_cancel_success']);
+unset($_SESSION['msg_cancel_failed']);
+unset($_SESSION['msg_rebook_success']);
+
 
 include('../partials/scripts.php');
 include('../partials/footer.php');

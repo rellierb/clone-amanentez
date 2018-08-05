@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   $reference_no = $_POST['referenceNo'];
 
-  $query = "SELECT res.id, res.reference_no, res.status FROM reservation res WHERE res.reference_num='$reference_no'";
+  $query = "SELECT res.id, res.reference_no, res.status FROM reservation res WHERE res.reference_no='$reference_no'";
   $result = mysqli_query($db, $query);
 
   if(intval(mysqli_num_rows($result)) == 1) {
@@ -33,22 +33,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (file_exists($target_file)) {
           $uploadOk = 0;
           $_SESSION['file_upload']['err_file_exists'] = "Your photo has existing name";
+          header('location: index.php');
         } 
     
         if ($_FILES["paymentPhoto"]["size"] > 500000) {
           $uploadOk = 0;
           $_SESSION['file_upload']['err_file_size'] = "The file you uploaded has exceeded the capacity of 5MB";
+          header('location: index.php');
         } 
     
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
         && $imageFileType != "gif" ) {
           $uploadOk = 0;
           $_SESSION['file_upload']['err_file_type'] = "The file types allowed are JPG, PNG, JPEG, and GIF";
+          header('location: index.php');
         } 
     
         if ($uploadOk == 0) {
           $_SESSION['file_upload']['err_file'] = "Sorry, there was an error uploading your file";
-         
+          header('location: index.php');
         } else {
           if (move_uploaded_file($_FILES["paymentPhoto"]["tmp_name"], $target_file)) {
       
@@ -57,7 +60,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $result = mysqli_query($db, $query);
     
             if($result) {
-              header('Location: success.php');
+              $_SESSION["msg_payment_upload_success"] = "Your file is successfully updated you will receive an email for confirmation";
+              header('location: index.php');
             }    
             
           } else {

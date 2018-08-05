@@ -11,16 +11,22 @@
 
     <!-- Font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Raleway" rel="stylesheet">
 
     <!-- Daterange Picker -->
     <link rel="stylesheet" type="text/css" href="../assets/vendor/daterangepicker.css" />
 
      <!--custom css  -->
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/carousel.css">
+    <!-- <link rel="stylesheet" href="../assets/css/carousel.css"> -->
     <link rel="stylesheet" href="../assets/css/rating.css">
-    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <?php
+    
+    if(isset($_SESSION["account_type"])) {
+        echo '<link rel="stylesheet" href="../assets/css/dashboard.css">';
+    }
 
+    ?>
     <!-- JQUERY-MIN -->
     <script src="../assets/vendor/jquery.js"></script>
     <!-- moment.js -->
