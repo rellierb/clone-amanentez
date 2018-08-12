@@ -16,36 +16,55 @@ $db = db_connection();
 
     ?>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Book your stay</h3>
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <div class="form-group mx-sm-3 mb-2">
-                                    <label for="capacity">Guest Count:</label>
-                                    <input type="number" name="guestNumber" class="form-control" id="guest_count" required>
-                                </div>
-                            </div>
-                            <div class="col-sm-5">
-                                <label for="capacity">Check in and Check out Date:</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-calendar-alt"></i></span>
-                                    </div>
-                                    <input type="text" name="checkDate" class="form-control" id="datepicker" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <a class="btn btn-primary" id="index-reserve" role="button" style="margin-top: 30px; color: white;" href="../booking/reserve.php">Book now!</a>
-                            </div>
-                        </div>
+    <nav class="navbar navbar-dark" style="background-color: rgba(0, 0, 0, .4)" id="booking-home-page">
+        <div style="width: 60%; margin: 0 auto;" class="row booking-elements">
+            <div class="landing-booking">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-users"></i></span>
                     </div>
+                    <input type="number" name="guestNumber" placeholder="Guest Count" class="form-control" id="guest_count" required>
                 </div>
+            </div>
+            <div class="landing-booking">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-calendar-alt"></i></span>
+                    </div>
+                    <input type="text" name="checkDate" class="form-control" id="datepicker" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Check in and Check out Date" required>
+                </div>    
+            </div>
+            <div class="landing-booking">
+                <a class="btn btn-primary" id="index-reserve" role="button" href="../booking/reserve.php">BOOK NOW</a>
+            </div>
+        </div>
+    </nav>
 
+    <div class="container-fluid">
+    
+        <div class="row about-section">
+            <div class="col-sm-12">
+                <h1 class="text-center">AMANENTEZ BEACH RESORT</h1>
+                <hr>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                </div>
+            </div>
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4">Fluid jumbotron</h1>
+                    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                </div>
+            </div>
+        
+            
+        </div>
+
+        <div class="row room-list" >
+            <div class="col-sm-12">
+                <h2 class="text-center">OUR ROOMS</h2>
+                <hr>
                 <div class="row">
                     
                     <?php
@@ -59,34 +78,46 @@ $db = db_connection();
                             echo '
                             <div class="col-sm-4">
                                 <div class="card">
-                                    <img class="card-img-top" src="https://picsum.photos/150/150/?random" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><strong>' . $rooms['type'] . '</strong></h5>
-                                        <p class="card-text">' . $rooms['simple_description'] . '</p>
-                                        <a href="../rooms.php?room_name='.str_replace(' ', '', $rooms['type']).'" class="btn btn-primary">Discover more</a>
+                                    <img class="card-img-top image" src="https://picsum.photos/150/150/?random" alt="Card image cap">
+                                    <div class="middle">
+                                        <div>' . $rooms['simple_description'] . '</div>
                                     </div>
+                                    <div class="card-body">
+                                        
+                                        <a href="../rooms.php?room_name='.str_replace(' ', '', $rooms['type']).'"><h5 class="card-title text-center"><strong>' . $rooms['type'] . '</strong></h5></a>
+                                    </div>
+                                    
                                 </div>
                             </div>
                             ';
                         }
                     }
-                    
                     ?>
-
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card about">
-                    <h2>About Us</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-            </div>
-        </div>
-
     </div>
+
+     <div class="footer-bg-color">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h5 class="text-center"><i class="fas fa-map-marker-alt"></i>Location</h5>    
+                    <hr>
+                </div>
+                <div class="col-sm-4">
+                    <h5 class="text-center"><i class="fas fa-search"></i>Follow us</h5>
+                    <hr>
+                </div>
+                <div class="col-sm-4">
+                    <h5 class="text-center"><i class="fas fa-envelope"></i>Contact us</h5>
+                    <hr>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>         
 
     
 <?php 

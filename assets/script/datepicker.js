@@ -7,6 +7,31 @@ $(document).ready(function() {
             startDate: moment().add(1, 'days'),
             endDate: moment().add(2, 'days'),
             showDropdowns: false,
+            alwaysShowCalendars: true,
+            drops: 'up',
+            locale: {
+                cancelLabel: 'Clear'
+            }
+        });
+    
+        $('input[name="checkDate"]').on('apply.daterangepicker', function(ev, picker) {
+            $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+        });
+    
+        $('input[name="checkDate"]').on('cancel.daterangepicker', function(ev, picker) {
+            $(this).val('');
+        });
+    });
+
+    $(function() {
+        $('#reserve-datepicker').daterangepicker({
+            autoUpdateInput: false,
+            minDate: moment().add(1, 'days'),
+            startDate: moment().add(1, 'days'),
+            endDate: moment().add(2, 'days'),
+            showDropdowns: false,
+            alwaysShowCalendars: true,
+            drops: 'down',
             locale: {
                 cancelLabel: 'Clear'
             }

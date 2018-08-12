@@ -53,6 +53,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $contact_number = mysqli_real_escape_string($db, trim($_POST['contactNumber']));
   $birthday = mysqli_real_escape_string($db, trim($_POST['birthday']));
   $reference_num = mysqli_real_escape_string($db, trim(generateRefNum()));
+  $payment_type = mysqli_real_escape_string($db, trim($_POST['payment_type']));
 
   if(isset($_SESSION["account_type"])) {
     if($_SESSION["account_type"] == "Administrator" || $_SESSION["account_type"] == "Front Desk")

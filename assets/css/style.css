@@ -1,12 +1,340 @@
 body {
-    font-family: 'Raleway', sans-serif;
-    background-color: rgba(38,222,129,.2);
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Libre Baskerville', serif;
+}
+
+div#load_screen {
+    background-color:#fff;
+    opacity: 1;
+    position: fixed;
+    z-index: 100;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+}
+
+div#load_screen > div#loading {
+    color: #fff;
+    margin: 0 auto;
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    width: 400px;
+}
+
+.loading-img {
+    width: 400px;
+    height: 200px;
+}
+
+#loading-progress {
+    width: 100%;
+    background-color: #eee;
+}
+
+#loading-bar {
+    width: 1%;
+    height: 20px;
+    background-color: dodgerblue;
+}
+
+nav.navbar {
+    margin-bottom: 0px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+ul.navbar-nav {
+    float: right;
+}
+
+ul.navbar-nav> li.nav-item > a.nav-link {
+    color: white;
+}
+
+.navbar-img {
+    height: 50px;
+    width: 180px;
+}
+
+.carousel-inner {
+    height: 100vh;
+}
+
+#booking-home-page {
+    position: absolute;
+    top: 83%;
+    height: 95px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    z-index: 99;
+    padding: 20px;
+}
+
+#guest_count, #check-in-date, #check-out-date {
+    background-color: #fff;
+}
+
+#booking-home-page label {
+    color: #fff;
+    margin: 0 auto;
+}
+
+#index-reserve {
+    color: #fff;
+    top: 15%;
+    width: 100%;
+}
+
+.form-control, .input-group-text, .btn {
+    border-radius: 0;
+}
+
+#guest_count, #datepicker, #index-reserve {
+    padding: 8px;
+}
+
+#datepicker {
+    padding-left: 15%;
+}
+
+#guest_count {
+    padding-left: 18%;
+}
+
+.landing-booking {
+    margin: 7px;
+}
+
+div.landing-booking:nth-of-type(1) {
+    width: 27%;
+}
+
+div.landing-booking:nth-of-type(2) {
+    width: 47%;
+}
+
+div.landing-booking:nth-of-type(3) {
+    width: 20%;
+}
+
+.nav-item {
+    margin-right: 20px;
+}
+
+.navbar-bg-blue-color {
+    background-color: rgba(52,152,219, .8);
+}
+
+
+.about-section {
+    margin: 100px 0;
+}
+
+.about-section div {
+    width: 70%;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+ /* Image overlay */
+
+.image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.card:hover .image {
+    opacity: 0.3;
+}
+
+.card:hover .middle {
+    opacity: 1;
+}
+
+.footer-bg-color {
+    background-color: rgba(52,152,219, .9);
+    padding-top: 30px;
+    height: 30vh;
+    width: 100%;
+}
+
+h5 > i.fas {
+    padding-right: 10px;
+}
+
+.footer-bg-color h5 {
+    color: white;
+}
+
+.footer-bg-color hr {
+    background-color: white;
+}
+
+.reservation img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 120px;
+}
+
+.reservation > a {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reservation-nav {
+    width: 100%;
+    height: 65px;
+    background-color:  rgba(52,152,219, .8);
+}
+
+.reservation-nav .input-group,
+.reservation-nav .check-available {
+    padding-top:10px;
+}
+
+#check-available-btn, #reserve-datepicker {
+    padding: 8px;
+}
+
+.side-nav-res-header {
+    width: 100%;
+    height: 45px;
+    background-color:rgba(52,152,219,.8);
+}
+
+.side-nav-res-header h5 {
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+}
+
+.side-nav-res {
+    box-shadow: 5px 5px 5px #ddd;
+}
+
+.room-div {
+    outline: 1px solid #bdc3c7;
+    padding: 20px 5px;
+    margin: 10px;
+    margin-right: 0px;
+    box-shadow: 7px 7px 5px #ddd;
+    transition: 2s ease-out;
+}
+
+p.price {
+    text-align: right;
+    font-size: 2em;
+    font-weight: bolder;
+    color: #4834d4;
+    margin-bottom: .2rem;
+}
+
+.select-room-btn {
+    position: absolute;
+    width: 88%;
+    bottom: 0;
+}
+
+.room-form small, .room-form p {
+    text-align: right;
+}
+
+p > small {
+    padding: 0px;
+}
+
+.room-form p:nth-of-type(2) {
+    margin: 0;
+}
+
+.room-details h4 {
+    font-family: 'Quicksand', sans-serif;
+    color:rgb(52,152,219);
+    font-weight: bolder;
+}
+
+
+#reservation-details > ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#reservation-details {
+    padding: 0;
+    padding-top: 10px;
+}
+
+#smartwizard {
+    margin-top: 20px;
+}
+
+#smartwizard .col-sm-12 {
+    padding-left: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.show {
+    opacity: 1;
+    transition: opacity 1000ms;
+}
+
+.hide {
+    opacity: 0;
+    transition: opacity 1000ms;
 }
 
 .card {
     margin-top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
 }
 
 .card-set {
@@ -59,10 +387,11 @@ div.col-sm-4 > div.card > div.card-body p {
 
 ul.progress-form {
     z-index: 2;
+    width: 100%;
 }
 
-
 .progress-form {
+    
     margin-top: 30px;
     counter-reset: step;
 }
@@ -70,32 +399,34 @@ ul.progress-form {
 .progress-form li {
     list-style-type: none;
     float: left;
-    width: 25%;
+    width: 33.33%;
     position: relative;
     text-align: center;
+    font-size: 1em;
 }
 
 .progress-form li:before {
     content: counter(step);
     counter-increment: step;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    border: 1px solid #ddd;
+    width: 50px;
+    height: 50px;
+    line-height: 37px;
+    border: 5px solid #ddd;
     display: block;
     text-align: center;
     margin: 0 auto 10px auto;
     border-radius: 50%;
     background-color: #eee;
+    font-size: 1em;
 }
 
 .progress-form li:after {
     content: '';
     position: absolute;
     width: 100%;    
-    height: 1px;
-    background-color:#000;
-    top: 15px;
+    height: 5px;
+    background-color: #ddd;
+    top: 25px;
     left: -50%;
     z-index: -1;
 }
@@ -115,6 +446,7 @@ ul.progress-form {
 .progress-form li.active + li:after {
     background-color:  #27ae60;
 }
+
 
 fieldset {
     padding: 30px;
@@ -138,6 +470,11 @@ ul.payment-wrap li {
     margin: 10px auto;
 }
 
-#taken_email, #invalid_email {
+#taken_email, #invalid_email, #room_selected {
     display: none;
+}
+
+#center-div {
+    margin-right: auto;
+    margin-left: auto;
 }

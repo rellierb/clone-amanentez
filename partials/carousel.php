@@ -1,12 +1,7 @@
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
+  <div class="carousel-inner" >
     <div class="carousel-item active">
-      <img class="first-slide" src="https://picsum.photos/1368/568/?random" alt="First slide">
+      <img class="first-slide" src="https://picsum.photos/1368/660/?random" alt="First slide">
       <div class="container">
         <div class="carousel-caption text-left">
           <!-- <h1>Example headline.</h1>
@@ -15,7 +10,7 @@
       </div>
     </div>
     <div class="carousel-item">
-      <img class="second-slide" src="https://picsum.photos/1368/568?random" alt="Second slide">
+      <img class="second-slide" src="https://picsum.photos/1368/660?random" alt="Second slide">
       <div class="container">
         <div class="carousel-caption">
           <!-- <h1>Another example headline.</h1>
@@ -24,7 +19,7 @@
       </div>
     </div>
     <div class="carousel-item">
-      <img class="third-slide" src="https://picsum.photos/1368/568?random" alt="Third slide">
+      <img class="third-slide" src="https://picsum.photos/1368/660?random" alt="Third slide">
       <div class="container">
         <div class="carousel-caption text-right">
           <!-- <h1>One more for good measure.</h1>

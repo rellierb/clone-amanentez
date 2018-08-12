@@ -1,39 +1,56 @@
-// var myRooms, txt = "";
+var guest_count_input = document.getElementById('guest_count');
+var check_in_out_date = document.getElementById('reserve-datepicker');
 
-// var xmlhttp = new XMLHttpRequest();
-// xmlhttp.onreadystatechange = function() {
-//     if(this.readyState == 4 && this.status == 200) {
-//         myRooms = JSON.parse(this.responseText);
-//         var roomValue = 0;
-//         for(var x = 0; x < myRooms.length; x++) {
-//             roomValue += 1;
-//             if(x % 3 == 0) {
-//                 txt += '<div class="row">';
-//             }
-//             txt += '<div class="col">';
-//             txt += '<img class="card-img-top" src="https://picsum.photos/500/?random" alt="Card image cap">'
-//             txt += '<div class="form-check">'
-//             txt += '<input class="form-check-input" type="checkbox" name="rooms[]" value="' + roomValue +'">'
-//             txt += '<h5>' + myRooms[x].type   + '</h5>';
-//             txt += '<p class="card-text ellipsis">' + myRooms[x].description + '</p>';
-//             txt += '<div class="form-group">';
-//             txt += '<label>Number of Rooms</label>';
-//             txt += '<select class="form-control" name="guestNum'+ roomValue +'" style="width: 67%; display: inline-block;">';
-//             for(var i = 0; i < 5; i++) {
-//                 txt += '<option value="'+ i +'">'  + i + '</option>';
-//             }
-//             txt += '</select>';
-//             txt += '</div>';
-//             txt += '</div>';
-//             txt += '</div>';
-//             txt += '</div>';
-//             if(x % 3 == 2) {
-//                 txt += '</div>';
-//             }
-//         }
-//         document.getElementById("roomsAvailable").innerHTML = txt;
-//     }
-// };
-// xmlhttp.open("GET", "../rooms/list_room.php", true);
-// xmlhttp.send();
+eventListeners();
+
+function eventListeners() {
+  guest_count_input.addEventListener('blur', addInputToView);
+  check_in_out_date.addEventListener('blur', function() {
+    console.log('trads');
+  });
+  
+  check_in_out_date.addEventListener('click', function() {
+    var apply_btn = document.querySelector('.applyBtn');
+    var apply_btn_exists = document.body.contains(apply_btn);
+    console.log(apply_btn_exists);
+    if(apply_btn_exists) {
+      apply_btn.addEventListener('click', addDateToShow);
+    }
+  })
+}
+
+function addInputToView() {
+  var count = guest_count_input.value;
+  var guestCountView = document.getElementById('guest_count_show');
+  guestCountView.innerText = count;
+  guestCountView.classList.add('animated');
+  guestCountView.classList.add('fadeIn');
+}
+
+function addDateToShow() {
+  var arrivalDate = document.getElementById('arrival_date_show');
+  var departureDate = document.getElementById('departure_date_show');
+  var numberOfDays = document.getElementById('no-of-days');
+
+  var startDate = $('#reserve-datepicker').data('daterangepicker').startDate;
+  var endDate = $('#reserve-datepicker').data('daterangepicker').endDate;  
+  var numOfDays = endDate.diff(startDate, 'days');
+
+  arrivalDate.innerText = startDate.format('MMM D YYYY');
+  departureDate.innerText = endDate.format('MMM D YYYY');
+  numberOfDays.innerText = numOfDays;
+
+  arrivalDate.classList.add('animated');
+  arrivalDate.classList.add('fadeIn');
+  departureDate.classList.add('animated');
+  departureDate.classList.add('fadeIn');
+  numberOfDays.classList.add('animated');
+  numberOfDays.classList.add('fadeIn');
+}
+
+function selectRoom(id) {
+  console.log(id);
+
+}
+
 
