@@ -1,22 +1,36 @@
 var guest_count_input = document.getElementById('guest_count');
 var check_in_out_date = document.getElementById('reserve-datepicker');
+var nextBtn = document.querySelector('.sw-btn-next');
+var totalPrice = 0;
+// nextBtn.addEventListener('load', function() {
+//   console.log(document.body.contains(nextBtn));
+// })
+
+// $(document).ready(function(){
+  
+//   $('.sw-btn-next').click(function() {
+//     console.log("dada");
+//   });
+
+// });
+
 
 eventListeners();
 
 function eventListeners() {
   guest_count_input.addEventListener('blur', addInputToView);
-  check_in_out_date.addEventListener('blur', function() {
-    console.log('trads');
-  });
+  // check_in_out_date.addEventListener('blur', function() {
+  // });
   
   check_in_out_date.addEventListener('click', function() {
     var apply_btn = document.querySelector('.applyBtn');
     var apply_btn_exists = document.body.contains(apply_btn);
-    console.log(apply_btn_exists);
     if(apply_btn_exists) {
       apply_btn.addEventListener('click', addDateToShow);
     }
-  })
+  });
+
+  // nextBtn.addEventListener('click', selectRoom);
 }
 
 function addInputToView() {
@@ -49,7 +63,57 @@ function addDateToShow() {
 }
 
 function selectRoom(id) {
-  console.log(id);
+  
+  var isRoomChecked = document.getElementById('room' + id);
+  var roomName = document.getElementById('roomName' + id).innerText;
+  var roomPrice = document.getElementById('roomPrice' + id).innerText;
+  var roomCount = document.querySelector('select[name="guestNum'+ id+'"]').value;
+  var roomsSelected = document.getElementById('roomsSelected');
+  var noRoomSelected = document.getElementById('noRoomSelected');
+  var roomList = document.getElementById('roomList');
+
+  if(roomCount != '') {
+    isRoomChecked.setAttribute("checked", true);
+    if(document.body.contains(noRoomSelected)) {
+      roomsSelected.removeChild(noRoomSelected);
+    }
+    var li = document.createElement('li');
+    li.classList.add('animated');
+    li.classList.add('fadeIn');
+    var roomListContent = "";
+    roomListContent += '<p>' + roomName + '<span style="float: right">' + roomCount + ' X ' + roomPrice + '</span></p>';
+    
+    li.innerHTML = roomListContent;
+    roomsSelected.appendChild(li);
+
+    var price = document.getElementById('roomPrice' + id).getAttribute('data-price');
+    var mainDiv = document.createElement('div');
+    mainDiv.classList.add('card-footer');
+    if(document.body.contains(document.querySelector('div.card-footer'))) {
+      var content = attachTotalPrice(id, price);
+      mainDiv.appendChild(content);
+      document.querySelector('div.side-nav-res').appendChild(mainDiv);
+    } else {
+      
+      var content = attachTotalPrice(id, price);
+      mainDiv.appendChild(content);
+      document.querySelector('div.side-nav-res').appendChild(mainDiv);
+    }
+  } else {
+    alert('False');
+  }
+
+}
+
+function attachTotalPrice(id, price) {
+  var div = document.createElement('div');
+  totalPrice += parseFloat(price);
+  var content = '<p class="animated fadeIn">Total <span style="float: right;">' + totalPrice + '</span></p>';
+  div.innerHTML = content;
+  return div;
+}
+
+function totalWithVAT(price) {
 
 }
 

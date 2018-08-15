@@ -82,14 +82,14 @@ $db = db_connection();
                                                 <img src="https://picsum.photos/200/200/?random" alt="Image of '. $room_details['type'].'">
                                             </div>
                                             <div class="room-details col-sm-6">
-                                                <h4>'.$room_details['type'].'</h4>
+                                                <h4 id="roomName'.$id.'">'.$room_details['type'].'</h4>
                                                 <p>'.$room_details['simple_description'].'</p>
                                             </div>
                                             <div class="room-form col-sm-3">
                                                 <p>'.$room_details['count(r_s.room_id)'].' Room(s) Left</p>
                                                 <p><small>Rate per night</small></p>
-                                                
-                                                <p class="price">P '. number_format($room_details['rate'], 2).'</p>
+                                                <p class="price" id="roomPrice'.$id.'" data-price="'.$room_details['rate'].'">P '. number_format($room_details['rate'], 2).'</p>
+                                                <input class="form-check-input" id="room'.$room_details['id'].'" type="checkbox" name="rooms[]" value="' . $room_details['id'] . '">
                                                 <select class="form-control" name="guestNum'.$id.'" placeholder="Guest Count">
                                                     <option value=""></option>                
                                     ';
@@ -168,9 +168,8 @@ $db = db_connection();
                                 <label class="form-check-label" for="payment_type">
                                     <input class="form-check-input" type="radio" name="payment_type" id="cash" value="Cash" checked>
                                     <img src="../assets/images/cash.png">
-                                        Cash
+                                    Cash
                                 </label>
-
                             </li>
                             <li>
                             
@@ -178,7 +177,6 @@ $db = db_connection();
                                     <input class="form-check-input" type="radio" name="payment_type" id="bank_depost" value="Bank Deposit">
                                     <img src="../assets/images/bank.png">
                                     Bank Deposit
-                                    
                                 </label>
                             
                             </li>
@@ -232,10 +230,12 @@ $db = db_connection();
                 <div class="side-nav-res-header">
                     <h5 class="card-title">Room(s) Details</h5>
                 </div>
-                <div class="card-body">
-                    <p class="text-center">No room(s) selected</p>
-                    
+                <div class="card-body" id="roomsSelected">
+                    <ul id="roomList">
+                    </ul>
+                    <p class="text-center" id="noRoomSelected">No room(s) selected</p>
                 </div>
+
             </div>
             <button class="btn btn-primary" style="width: 100%;">SUBMIT</button>        
 

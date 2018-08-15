@@ -299,6 +299,10 @@ p > small {
     padding-left: 0px;
 }
 
+#roomsSelected {
+    list-style: none;
+}
+
 
 
 
