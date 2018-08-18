@@ -303,10 +303,55 @@ p > small {
     list-style: none;
 }
 
+.sw-main > ul.step-anchor {
+    width: 100%;
+}
 
+.toast-top-center {
+    width: 25%;
+}
 
+.red-fields {
+    border-color: #e74c3c;
+}
 
+.red-label {
+    color: #e74c3c;
+}
 
+.green-fields {
+    border-color: #2ecc71;
+}
+
+.green-label {
+    color: #2ecc71;
+}
+
+input[type*="radio"] {
+    visibility: hidden;
+}
+
+label[for*="payment_type"] {
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type*="radio"]:checked + label[for*="payment_type"] {
+    background: linear-gradient(#11998e, #38ef7d);
+    height: 75px;
+}
+
+.payment-wrap h4,
+#step-3 h5 {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.payment-wrap img {
+    display: block;
+    margin: 0 auto;
+    height: 75px;
+    width: 75px;
+}
 
 
 
@@ -394,8 +439,7 @@ ul.progress-form {
     width: 100%;
 }
 
-.progress-form {
-    
+.progress-form {    
     margin-top: 30px;
     counter-reset: step;
 }
@@ -462,11 +506,7 @@ fieldset {
 
 ul.payment-wrap {
     list-style-type: none;
-}
-
-ul.payment-wrap li {
-    display: inline;
-    margin-right: 20%;
+    padding-left: 0;
 }
 
 .alert {

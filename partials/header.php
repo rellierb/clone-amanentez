@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <!-- <link rel="stylesheet" href="../assets/css/carousel.css"> -->
     <link rel="stylesheet" href="../assets/css/rating.css">
-
+    <link rel="stylesheet" href="../assets/vendor/toastr/toastr.min.css">
     <?php
     
     if(isset($_SESSION["account_type"])) {

@@ -38,17 +38,19 @@ $(document).ready(function() {
   }
 
   $("#smartwizard").on("showStep", function(e, anchorObject, stepNumber, stepDirection, stepPosition) {
+    
     if(stepPosition === 'first'){
         $(".sw-btn-prev").hide();
+        //$(".sw-btn-next").prop('disabled', true);
     }else if(stepPosition === 'final'){
         $(".sw-btn-next").hide()
         $(".sw-btn-prev").show();
     }else{
         $(".sw-btn-prev").show();
-        $(".sw-btn-next").show()
+        $(".sw-btn-next").show();
+        //$(".sw-btn-next").prop('disabled', true);
     }
  });
-
 
   $('#smartwizard').smartWizard({
     selected: 0,  
@@ -81,18 +83,4 @@ $(document).ready(function() {
 
 
 });
-
-
-
-// $('#index-reserve').click(function() {
-
-//   var guest_number = $('#guest_count').val();
-//   var reservation_date =  $('#datepicker').val();
-
-//   localStorage.setItem('guest_count', `${guest_number}`);
-//   localStorage.setItem('reservation_date', `${reservation_date}`);
-// });
-
-
-
 
