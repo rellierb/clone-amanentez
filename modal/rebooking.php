@@ -9,141 +9,61 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Cancel Booking</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Rebooking</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <form action="../forms/rebook_reservation.php" method="POST">
-        <div class="modal-body">
-          <div class="row">
-            <div class="col">
-            <label for="date">Date</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-calendar-alt"></i></span>
-                    </div>
-                    <input type="text" name="checkDate" class="form-control" id="datepicker" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
-                </div> 
+        <div class="row">
+            <div class="col-sm-12">
+            <?php
+        $room_query = "SELECT DISTINCT count(r_s.room_id), r.id, r.type, r.simple_description, r.capacity, r.rate FROM room r INNER JOIN room_status r_s ON r.id = r_s.room_id GROUP BY r_s.room_id";
+        $room_results = mysqli_query($db, $room_query);
+        
+        $row_count = mysqli_num_rows($room_results); 
+        
+        if($row_count > 0) {
+            $id = 1;
+            while($room_details = mysqli_fetch_assoc($room_results)) {    
+                echo '
+                    <div class="row room-div"> 
+                        <div class="room-img col-sm-3">
+                            <img src="https://picsum.photos/200/200/?random" alt="Image of '. $room_details['type'].'">
+                        </div>
+                        <div class="room-details col-sm-6">
+                            <h4 id="roomName'.$id.'">'.$room_details['type'].'</h4>
+                            <p>'.$room_details['simple_description'].'</p>
+                        </div>
+                        <div class="room-form col-sm-3">
+                            <p>'.$room_details['count(r_s.room_id)'].' Room(s) Left</p>
+                            <p><small>Rate per night</small></p>
+                            <p class="price" id="roomPrice'.$id.'" data-price="'.$room_details['rate'].'">P '. number_format($room_details['rate'], 2).'</p>
+                            <input class="form-check-input" id="room'.$room_details['id'].'" type="checkbox" name="rooms[]" value="' . $room_details['id'] . '">
+                            <select class="form-control" name="guestNum'.$id.'" placeholder="Guest Count">
+                                <option value=""></option>                
+                ';
+                
+                for($i = 1; $i <= $room_details['count(r_s.room_id)']; $i++) {
+                    echo '<option value='.$i.'>'.$i.'</option>';
+                }
+                echo '
+                            </select>
+                            <a href="#" class="btn btn-primary select-room-btn" id="select-room-btn-'.$id.'"  onclick="selectRoom('.$id.')">Select Room</a>
+                        </div>
+                    </div>                
+                ';
+                $id++;
+            }
+        }
+            
+        ?>  
             </div>
-          </div>
-          <hr>
-          <div id="roomsAvailable">
-              <div class="row">
-                  <div class="col-sm">
-                      <img class="card-img-top" src="https://picsum.photos/500/?random" alt="Card image cap">
-                      <div class="form-check">
-                          <input class="form-check-input" type="checkbox" name="rooms[]" value="1">
-                          <h5>Standard Room</h5>
-                          <p class="card-text"></p>
-                          <div class="form-group">
-                              <label>Number of Rooms</label>
-                              <select class="form-control" name="guestNum1" style="width: 67%; display: inline-block;">
-                                  <option value="" selected></option>
-                                  <option value="1">1</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                  <option value="5">5</option>
-                              </select>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm">
-                      <img class="card-img-top" src="https://picsum.photos/500/?random" alt="Card image cap">
-                      <div class="form-check">
-                          <input class="form-check-input" type="checkbox" name="rooms[]" value="2">
-                          <h5>Standard Deluxe</h5>
-                          <p class="card-text ellipsis"></p>
-                          <div class="form-group">
-                              <label>Number of Rooms</label>
-                              <select class="form-control" name="guestNum2" style="width: 67%; display: inline-block;">
-                                  <option value="1">1</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                  <option value="5">5</option>
-                              </select>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm">
-                      <img class="card-img-top" src="https://picsum.photos/500/?random" alt="Card image cap">
-                      <div class="form-check">
-                          <input class="form-check-input" type="checkbox" name="rooms[]" value="3">
-                          <h5>Deluxe</h5>
-                          <p class="card-text ellipsis"></p>
-                          <div class="form-group">
-                              <label>Number of Rooms</label>
-                              <select class="form-control" name="guestNum3" style="width: 67%; display: inline-block;">
-                                  <option value="1">1</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                  <option value="5">5</option>
-                              </select>
-                          </div>
-                      </div>
-                  </div>
-              </div>  <!-- .row -->
-              <div class="row">
-                  <div class="col-sm">
-                      <img class="card-img-top" src="https://picsum.photos/500/?random" alt="Card image cap">
-                      <div class="form-check">
-                          <input class="form-check-input" type="checkbox" name="rooms[]" value="4">
-                          <h5>Superior Room</h5>
-                          <p class="card-text ellipsis"></p>
-                          <div class="form-group">
-                              <label>Number of Rooms</label>
-                              <select class="form-control" name="guestNum4" style="width: 67%; display: inline-block;">
-                                  <option value="1">1</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                  <option value="5">5</option>
-                              </select>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm">
-                      <img class="card-img-top" src="https://picsum.photos/500/?random" alt="Card image cap">
-                      <div class="form-check">
-                          <input class="form-check-input" type="checkbox" name="rooms[]" value="5">
-                          <h5>Executive Room</h5>
-                          <p class="card-text ellipsis"></p>
-                          <div class="form-group">
-                              <label>Number of Rooms</label>
-                              <select class="form-control" name="guestNum5" style="width: 67%; display: inline-block;">
-                                  <option value="1">1</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                  <option value="5">5</option>
-                              </select>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm">
-                      <img class="card-img-top" src="https://picsum.photos/500/?random" alt="Card image cap">
-                      <div class="form-check">
-                          <input class="form-check-input" type="checkbox" name="rooms[]" value="6">
-                          <h5>VIP Beach Front</h5>
-                          <p class="card-text ellipsis"></p>
-                          <div class="form-group">
-                              <label>Number of Rooms</label>
-                              <select class="form-control" name="guestNum6" style="width: 67%; display: inline-block;">
-                                  <option value="1">1</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                  <option value="5">5</option>
-                              </select>
-                          </div>
-                      </div>
-                  </div>
-              </div> <!-- ./row -->
-            </div> <!-- #roomsAvailable-->
         </div>
+        
+        
+
+
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary">Rebook</button>

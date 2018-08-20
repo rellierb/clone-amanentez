@@ -11,17 +11,11 @@
         <div class="modal-body">
 
           <label for="referenceNo">Reference Number</label>
-          <input type="text" name="referenceNo" class="form-control">
-
-          <label for="firstName">First Name</label>
-          <input type="text" name="firstName" class="form-control">
-
-          <label for="lastName">Last Name</label>
-          <input type="text" name="lastName" class="form-control">
+          <input type="text" name="referenceNo" class="form-control" required>
 
           <label for="paymentPhoto">Deposit Slip Photo</label>
-          <input type="file" name="paymentPhoto" class="form-control">
-
+          <input type="file" name="paymentPhoto" class="form-control" required>
+          
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary" name="submit">Submit</button>

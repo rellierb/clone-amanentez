@@ -353,10 +353,60 @@ input[type*="radio"]:checked + label[for*="payment_type"] {
     width: 75px;
 }
 
+#success-reservation h4.card-title,
+#view-full-reservation h4.card-title {
+    text-align: center;
+    margin-top: 12px;
+}
+
+#success-reservation div.card,
+#view-full-reservation div.card {
+    box-shadow: 5px 5px 5px #ddd;
+}
+
+#view-reserve div.card,
+#upload-photo div.card {
+    position: absolute;
+    width: 350px;
+    top: 100px;
+    left: 35%;
+    padding: 20px;
+    box-shadow: 5px 5px 5px #ddd;
+}
+
+#view-reserve h1,
+#upload-photo h2,
+#upload-photo h5 {
+    position: relative;
+    top: 100px;
+    left: 34.5%;
+    margin: 0 auto;
+}
+
+#upload-photo h2 {
+    left: 43%;
+}
+
+#upload-photo h5 {
+    left: 0;
+    margin-top: 10px;
+    text-align: center;
+}
 
 
+#view-reserve h4 {
+    position: relative;
+    color: #e74c3c;
+    top: 100px;
+    left: 28.5%;
+    margin: 0 auto;
+    padding-top: 10px;
+}
 
-
+#view-full-reservation button {
+    margin-left: 10px;
+    margin-top: 20px;
+}
 
 
 

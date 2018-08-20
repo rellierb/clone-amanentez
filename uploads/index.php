@@ -14,7 +14,7 @@ include('../partials/header.php');
 
   ?>
 
-  <div class="container">
+  <div class="container" id="upload-photo">
     <h2>PAYMENT</h2>
 
     <?php
@@ -43,16 +43,18 @@ include('../partials/header.php');
 
     <h5>Upload photo of deposit slip</h5>
     <div class="row">
-      <div class="col-4">
-        <form action="upload_photo_payment.php" method="POST" enctype="multipart/form-data">
-          <label for="referenceNo">Reference Number</label>
-          <input type="text" name="referenceNo" class="form-control" required>
+      <div class="col-sm-12">
+        <div class="card">
+          <form action="upload_photo_payment.php" method="POST" enctype="multipart/form-data">
+            <label for="referenceNo">Reference Number</label>
+            <input type="text" name="referenceNo" class="form-control" required>
 
-          <label for="paymentPhoto">Deposit Slip Photo</label>
-          <input type="file" name="paymentPhoto" class="form-control" required>
+            <label for="paymentPhoto">Deposit Slip Photo</label>
+            <input type="file" name="paymentPhoto" class="form-control" required>
 
-          <button type="submit" class="btn btn-primary" name="submit">Submit</button>          
-        </form>
+            <button style="float: right; margin-top: 15px;" type="submit" class="btn btn-primary" name="submit">Submit</button>          
+          </form>
+        </div>
       </div>  
     </div>
   </div>

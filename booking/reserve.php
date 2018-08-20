@@ -18,7 +18,7 @@ $db = db_connection();
     }
 
     ?>
-    
+    <form method="POST" action="../forms/reserveRoom.php" id="reservation_form">
     <div class="reservation-nav">
         <div class="container">
             <div class="row">
@@ -58,7 +58,7 @@ $db = db_connection();
     </div>
 
     <div class="container-fluid">
-        <form method="POST" action="../forms/reserveRoom.php" id="reservation_form">
+        
             <div class="row">
             
                 <div class="col-sm-9">

@@ -12,16 +12,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $reference_no = mysqli_real_escape_string($db, $_POST['referenceNo']);
   } 
 
-  if(!empty($_POST['firstName'])) {
-    $first_name = mysqli_real_escape_string($db, $_POST['firstName']);
-  } 
-
-  if(!empty($_POST['lastName'])) {
-    $last_name = mysqli_real_escape_string($db, $_POST['lastName']);
+  if(!empty($_POST['emailAddress'])) {
+    $email = mysqli_real_escape_string($db, $_POST['emailAddress']);
   } 
   
   // Search for the reservation 
-  $query = "SELECT * FROM reservation r INNER JOIN client c ON r.client_id = c.id WHERE r.reference_no='$reference_no'";
+  $query = "SELECT * FROM reservation r INNER JOIN client c ON r.client_id = c.id WHERE r.reference_no='$reference_no' AND c.email='$email'";
   $result = mysqli_query($db, $query);
   $reservation_id = 0;
 

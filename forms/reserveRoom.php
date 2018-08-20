@@ -28,12 +28,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $db = db_connection();
 
   $guest_number = mysqli_real_escape_string($db, trim($_POST['guestNumber']));
-
   // Dates
   $check_date = explode("-", mysqli_real_escape_string($db, trim($_POST['checkDate'])));
   $check_in_date = date("Y-m-d", strtotime($check_date[0]));
   $check_out_date = date("Y-m-d", strtotime($check_date[1]));
-
+  
   $days_diff = date_diff(date_create($check_in_date), date_create($check_out_date));
   $no_of_days = intval($days_diff->format('%d'));
   $_SESSION['days_book'] = $no_of_days;
@@ -74,7 +73,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $client_id = $db->insert_id;
     $_SESSION['client_id'] = $client_id;
   
-    $query = "INSERT INTO reservation(reference_no, check_in, check_out, client_id, person_count, type,status, date_created, date_updated) VALUES ('$reference_num', '$check_in_date', '$check_out_date', '$client_id', '$guest_number', '$reservation_type', '$reservation_status' ,NOW(), NOW())";
+    $query = "INSERT INTO reservation(reference_no, check_in, check_out, client_id, person_count, type, payment, status, date_created) VALUES ('$reference_num', '$check_in_date', '$check_out_date', '$client_id', '$guest_number', '$reservation_type', '$payment_type' '$reservation_status' ,NOW())";
     $result = mysqli_query($db, $query);
 
     $reservation_id = $db->insert_id;
@@ -84,8 +83,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $db->query("INSERT INTO booking_rooms(reservation_id, room_id) VALUES($reservation_id, $k)");
       }
     }
-
-    header('location: ../booking/success.php');
 
     //if(!($_SESSION['account_type'] == "Administrator" || $_SESSION['account_type'] == 'Front Desk')) {
       // $mail = new PHPMailer(true);
@@ -110,15 +107,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       //   $_SESSION['email_error_msg'] = "There\'s an error processing your request";
       // }
 
-      // header('Location: ../booking/success.php');
+      header('Location: ../booking/success.php');
 
-    // } else {
-    //   $_SESSION["admin_reserve_room_msg_success"] = "Booking is Successfully reserve";
-    //   header('Location: ../admin/add_reservation.php');
-    // }
+    } else {
+      $_SESSION["reservation_msg_error"] = "Booking cannot be processed";        
+    }
     
-  } else {
-    $_SESSION["reservation_msg_error"] = "Booking cannot be processed";    
-  }
+  // } else {
+  //   $_SESSION["reservation_msg_error"] = "Booking cannot be processed";    
+  // }
   
 }

@@ -1,27 +1,13 @@
 <?php
 
-include('../partials/header.php');
+$begin = new DateTime( '2012-08-01' );
+$end = new DateTime( '2012-08-31' );
+$end = $end->modify( '+1 day' ); 
 
-?>
+$interval = new DateInterval('P1D');
+$daterange = new DatePeriod($begin, $interval ,$end);
 
-    <?php
-    
-    include('../partials/navbar.php');
-    
-    include('../partials/carousel.php');
-
-    ?>
-
-    <div>
-
-
-    
-    </div>
-
-    
-<?php 
-
-include('../partials/scripts.php');
-include '../partials/footer.php';
-
+foreach($daterange as $date){
+    echo $date->format("Ymd") . "<br>";
+}
 ?>

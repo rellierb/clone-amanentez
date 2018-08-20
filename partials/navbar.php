@@ -29,7 +29,7 @@
                 <a class="nav-link" href="/amanentez/suggestion/index.php">SUGGESTION</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/amanentez/account/index.php">ADMIN</a>
+                <a class="nav-link" href="/amanentez/account/index.php">ACCOUNT</a>
             </li>
         </ul>
     </div>

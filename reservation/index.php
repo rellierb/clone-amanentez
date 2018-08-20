@@ -10,7 +10,7 @@ include('../partials/header.php');
   
   ?>
 
-  <div class="container">
+  <div class="container" id="view-reserve">
     <h1>View Reservation</h1>
     <?php
     
@@ -19,25 +19,31 @@ include('../partials/header.php');
     }
     
     ?>
-    <div class="row">  
-      <div class="col-4" style="padding-top: 20px;">
-        <form action="../forms/viewReserved.php" method="POST">
-          <div class="form-group">
-            <label for="referenceNo">Reference No.</label>
-            <input type="text" class="form-control" id="" name="referenceNo" required>
-          </div>
-          <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input type="text" class="form-control" id="" name="firstName" required>
-          </div>
-          <div class="form-group">
-            <label for="lastName">Last Name</label>
-            <input type="text" class="form-control" id="" name="lastName" required>
-          </div>
-          <button class="btn btn-primary" type="submit" value="submit">Submit</button>
-        </form>
-      </div>
-    </div>
+    
+      
+      <div class="row">  
+        
+        <div class="col-sm-12" style="padding-top: 20px;">
+          <div class="card">
+          <form action="../forms/viewReserved.php" method="POST">
+            <div class="form-group">
+              <label for="referenceNo">Reference Number</label>
+              <input type="text" class="form-control" id="" name="referenceNo" required>
+            </div>
+            <div class="form-group">
+              <label for="emailAddress">Email Address</label>
+              <input type="text" class="form-control" id="" name="emailAddress" required>
+            </div>
+            <button class="btn btn-primary" type="submit" value="submit" style="float: right">Submit</button>
+          </form>
+
+          </div>      
+          
+        </div>
+      </div>  
+    
+
+    
   </div>
 
 
