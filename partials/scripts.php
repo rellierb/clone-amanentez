@@ -17,3 +17,4 @@
 <script src="../assets/script/reserve.js"></script>
 <script src="../assets/script/datepicker.js"></script>
 <script src="../assets/script/admin.js"></script>
+<script src="../assets/script/view-reservation.js"></script>

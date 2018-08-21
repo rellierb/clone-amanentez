@@ -7,18 +7,18 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="../uploads/upload_photo_payment.php" method="POST" enctype="multipart/form-data">
+      <form action="../uploads/upload_photo_payment.php" method="POST" id="upload-photo-form" enctype="multipart/form-data">
         <div class="modal-body">
 
           <label for="referenceNo">Reference Number</label>
-          <input type="text" name="referenceNo" class="form-control" required>
+          <input type="text" name="referenceNo" id="referenceNo" class="form-control" required>
 
           <label for="paymentPhoto">Deposit Slip Photo</label>
-          <input type="file" name="paymentPhoto" class="form-control" required>
+          <input type="file" name="paymentPhoto" id="paymentPhoto" class="form-control" required>
           
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+          <button type="submit" class="btn btn-primary" id="photo-submit-btn" name="submit">Submit</button>
         </div>
       </form>
     </div>

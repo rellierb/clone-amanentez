@@ -18,7 +18,11 @@ include('../partials/header.php');
     <h2>PAYMENT</h2>
 
     <?php
-    
+
+    if(isset($_SESSION["msg_payment_upload_success"])) {
+      echo '<p class="text-danger">' . $_SESSION["msg_payment_upload_success"] . '</p>';
+    }  
+
     if(isset($_SESSION['err_record_not_found'])) {
       echo '<p class="text-danger">' . $_SESSION['err_record_not_found'] . '</p>';
     }
@@ -63,6 +67,7 @@ include('../partials/header.php');
 
 unset($_SESSION['file_upload']);
 unset($_SESSION['err_record_not_found']);
+unset($_SESSION["msg_payment_upload_success"]);
 
 include('../partials/scripts.php');
 include('../partials/footer.php');
