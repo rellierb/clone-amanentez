@@ -7,9 +7,8 @@ require('../assets/config/connection.php');
 $db = db_connection();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+  
   $reference_no = mysqli_real_escape_string($db, $_POST['referenceNo']);;
-
   $query = "SELECT res.id, res.reference_no, res.status FROM reservation res WHERE res.reference_no='$reference_no'";
   $result = mysqli_query($db, $query);
 
@@ -23,11 +22,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $target_file = $target_dir . basename($_FILES["paymentPhoto"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-    // Check if image file is a actual image or fake image
-    if((isset($_POST["submit"])) && ($reservation_status != 'FOR PAYMENT CONFIRMATION')) {
+    
+    if(isset($_POST["submit"]) && $reservation_status !== 'FOR PAYMENT CONFIRMATION') {
       $check = getimagesize($_FILES["paymentPhoto"]["tmp_name"]);
-
       if($check !== false) {
 
         if (file_exists($target_file)) {
@@ -55,8 +52,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
           if (move_uploaded_file($_FILES["paymentPhoto"]["tmp_name"], $target_file)) {
             
-
-            $insertQuery = "INSERT INTO file_reservation (reservation_id, file_name) VALUES ('$reservation_id', '$target_file')";
+            $insertQuery = "INSERT INTO file_reservation (reservation_id, file_name, date_created) VALUES ('$reservation_id', '$target_file')";
 
             $resultInsert = mysqli_query($db, $insertQuery);
 
@@ -66,6 +62,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     
             if($result) {
               $_SESSION["msg_payment_upload_success"] = "Photo of your deposit slip was succesfully uploaded";
+              echo "photo successfully uploaded";
               header('location: ../reservation/view_reservation.php');
             }    
             
@@ -78,9 +75,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       } else {
         $uploadOk = 0;
       }
-    } else {
-      
-    }    
+    }   
 
   } else {
     $_SESSION['err_record_not_found'] = "Your reference number is invalid";

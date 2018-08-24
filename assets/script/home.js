@@ -41,14 +41,14 @@ $(document).ready(function() {
     
     if(stepPosition === 'first'){
         $(".sw-btn-prev").hide();
-        //$(".sw-btn-next").prop('disabled', true);
+        $(".sw-btn-next").prop('disabled', true);
     }else if(stepPosition === 'final'){
         $(".sw-btn-next").hide()
         $(".sw-btn-prev").show();
     }else{
         $(".sw-btn-prev").show();
         $(".sw-btn-next").show();
-        //$(".sw-btn-next").prop('disabled', true);
+        $(".sw-btn-next").prop('disabled', true);
     }
  });
 

@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/amanentez/home/index.php">HOME</a>
+                <a class="nav-link" href="/amanentez-v1/home/index.php">HOME</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">ABOUT</a>
@@ -20,16 +20,16 @@
                 <a class="nav-link" href="#">ROOMS</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/amanentez/booking/reserve.php">RESERVATION</a>
+                <a class="nav-link" href="/amanentez-v1/booking/reserve.php">RESERVATION</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/amanentez/reservation/index.php">STATUS</a>
+                <a class="nav-link" href="/amanentez-v1/reservation/index.php">STATUS</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/amanentez/suggestion/index.php">SUGGESTION</a>
+                <a class="nav-link" href="/amanentez-v1/suggestion/index.php">SUGGESTION</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/amanentez/account/index.php">ACCOUNT</a>
+                <a class="nav-link" href="/amanentez-v1/account/index.php">ACCOUNT</a>
             </li>
         </ul>
     </div>

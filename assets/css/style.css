@@ -408,9 +408,10 @@ input[type*="radio"]:checked + label[for*="payment_type"] {
     margin-top: 20px;
 }
 
-
-
-
+.center-img {
+    display: block;
+    margin: 0 auto;
+}
 
 
 

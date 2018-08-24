@@ -6,6 +6,12 @@ include('../assets/config/connection.php');
 
 $db = db_connection();
 
+$check_date = explode("-", mysqli_real_escape_string($db, trim($_SESSION["checkin_checkout"])));
+$check_in_date = date("M d Y", strtotime($check_date[0]));
+$check_out_date = date("M d Y", strtotime($check_date[1]));
+$days_diff = date_diff(date_create($check_in_date), date_create($check_out_date));
+$no_of_days = intval($days_diff->format('%d'));
+
 ?>
     <?php
 
@@ -28,7 +34,7 @@ $db = db_connection();
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-calendar-alt"></i></span>
                         </div>
-                        <input type="text" name="checkDate" class="form-control" id="reserve-datepicker" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Check in and Check out Date" required>
+                        <input type="text" name="checkDate" class="form-control" id="reserve-datepicker" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Check in and Check out Date" value="<?php echo isset($_SESSION["checkin_checkout"]) ? $_SESSION["checkin_checkout"] : ""; ?>" required>
                     </div>   
                 </div>
 
@@ -37,7 +43,7 @@ $db = db_connection();
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-users"></i></span>
                         </div>
-                        <input type="number" name="guestNumber" placeholder="Guest Count" class="form-control" id="guest_count" required>
+                        <input type="number" name="guestNumber" placeholder="Guest Count" class="form-control" id="guest_count" value="<?php echo isset($_SESSION["guest_number"]) ? $_SESSION["guest_number"] : ""; ?>" required>
                     </div>
                 </div>
                     
@@ -96,7 +102,7 @@ $db = db_connection();
                                                         <p>'.$room_details['count(r_s.room_id)'].' Room(s) Left</p>
                                                         <p><small>Rate per night</small></p>
                                                         <p class="price" id="roomPrice'.$id.'" data-price="'.$room_details['rate'].'">P '. number_format($room_details['rate'], 2).'</p>
-                                                        <input class="form-check-input" id="room'.$room_details['id'].'" type="checkbox" name="rooms[]" value="' . $room_details['id'] . '">
+                                                        <input style="display: none;" class="form-check-input" id="room'.$room_details['id'].'" type="checkbox" name="rooms[]" value="' . $room_details['id'] . '">
                                                         <select class="form-control" name="guestNum'.$id.'" placeholder="Guest Count">
                                                             <option value=""></option>                
                                             ';
@@ -222,25 +228,31 @@ $db = db_connection();
                                 <li>
                                     <div class="col-sm-12">
                                         <span>Arrival Date</span>
-                                        <b><span id="arrival_date_show"></span></b>
+                                        <b><span id="arrival_date_show">
+                                        <?php echo !empty($check_in_date) ? $check_in_date : ""; ?>
+                                        </span></b>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="col-sm-12">
                                         <span>Departure Date</span>
-                                        <b><span id="departure_date_show"></span></b>
+                                        <b><span id="departure_date_show">
+                                        <?php echo !empty($check_out_date) ? $check_out_date : ""; ?>
+                                        </span></b>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="col-sm-12">
                                         <span>Guest Count</span>
-                                        <b><span id="guest_count_show"></span></b>
+                                        <b><span id="guest_count_show"><?php echo isset($_SESSION["guest_number"]) ? $_SESSION["guest_number"] : ""; ?></span></b>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="col-sm-12">
                                         <span>No of Days</span>
-                                        <b><span id="no-of-days"></span></b>
+                                        <b><span id="no-of-days">
+                                        <?php echo !empty($no_of_days) ? $no_of_days  : ""; ?>
+                                        </span></b>
                                     </div>
                                 </li>
                             </ul>

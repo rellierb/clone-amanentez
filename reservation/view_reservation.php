@@ -12,19 +12,19 @@ $db = db_connection();
   include('../partials/reservation_nav.php');
   
   if(isset($_SESSION["msg_payment_upload_success"])) {
-    echo '<h5>' . $_SESSION['msg_payment_upload_success'] . '</h5>';
+    echo '<h5 class="text-center">' . $_SESSION['msg_payment_upload_success'] . '</h5>';
   }
   
   if(isset($_SESSION['msg_cancel_success'])) {
-    echo '<h5>' . $_SESSION['msg_cancel_success'] . '</h5>';
+    echo '<h5 class="text-center">' . $_SESSION['msg_cancel_success'] . '</h5>';
   } 
   
   if(isset($_SESSION['msg_cancel_failed'])) {
-    echo '<h5>' . $_SESSION['msg_cancel_failed'] . '</h5>';
+    echo '<h5 class="text-center">' . $_SESSION['msg_cancel_failed'] . '</h5>';
   }
   
   if(isset($_SESSION['msg_rebook_success'])) {
-    echo '<h5>' . $_SESSION['msg_rebook_success'] . '</h5>';
+    echo '<h5 class="text-center">' . $_SESSION['msg_rebook_success'] . '</h5>';
   }
 
   ?>
@@ -32,6 +32,8 @@ $db = db_connection();
   <div class="container" id="view-full-reservation">
     <div class="row">
       <div class="col-sm-12" >
+        <a href="../home/index.php" ><button class="btn btn-primary">Back to home</button></a>
+
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reBooking" style="float: right;">
           Rebook Reservation
         </button>
@@ -139,10 +141,34 @@ $db = db_connection();
         ?>
 
         </div>
-      
-
       </div>
+    </div>
 
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <h4 class="card-title">Payment Photo</h4>
+          <div class="card-body">
+            <?php
+            
+            $sql = "SELECT * FROM file_reservation WHERE reservation_id='$reservation_id'";
+            $result = mysqli_query($db, $sql);
+
+            if(mysqli_num_rows($result) == 1) {
+              while($photo = mysqli_fetch_assoc($result)) {
+                echo '
+                  <img class="center-img" style="margin-bottom: 20px;" src="../uploads/' . $photo["file_name"] . '" alt="Photo of a payment picture">
+                  <p class="text-center"><b>Date uploaded: ' . $photo["date_created"] . '</b></p>
+                ';
+              }
+            } else {
+              echo '<h6 class="text-center">No photo was uploaded</h6>';
+            }
+
+            ?>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="row">
@@ -208,6 +234,8 @@ $db = db_connection();
       echo '</table>';
 
       ?>
+
+          
 
         </div>
       </div>

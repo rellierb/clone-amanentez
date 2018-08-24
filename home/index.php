@@ -17,27 +17,29 @@ $db = db_connection();
     ?>
 
     <nav class="navbar navbar-dark" style="background-color: rgba(0, 0, 0, .4)" id="booking-home-page">
-        <div style="width: 60%; margin: 0 auto;" class="row booking-elements">
-            <div class="landing-booking">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-users"></i></span>
+        <form action="../forms/enter_date.php" method="POST">
+            <div style="width: 60%; margin: 0 auto;" class="row booking-elements">
+                    <div class="landing-booking">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-users"></i></span>
+                            </div>
+                            <input type="number" name="guestNumber" placeholder="Guest Count" class="form-control" id="guest_count">
+                        </div>
                     </div>
-                    <input type="number" name="guestNumber" placeholder="Guest Count" class="form-control" id="guest_count" required>
-                </div>
-            </div>
-            <div class="landing-booking">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-calendar-alt"></i></span>
+                    <div class="landing-booking">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-calendar-alt"></i></span>
+                            </div>
+                            <input type="text" name="checkDate" class="form-control" id="datepicker" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Check in and Check out Date">
+                        </div>    
                     </div>
-                    <input type="text" name="checkDate" class="form-control" id="datepicker" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Check in and Check out Date" required>
-                </div>    
+                    <div class="landing-booking">
+                        <button type="submit" class="btn btn-primary" id="index-reserve" role="button">BOOK NOW</a>
+                    </div>
             </div>
-            <div class="landing-booking">
-                <a class="btn btn-primary" id="index-reserve" role="button" href="../booking/reserve.php">BOOK NOW</a>
-            </div>
-        </div>
+        </form>
     </nav>
 
     <div class="container-fluid">
