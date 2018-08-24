@@ -47,7 +47,7 @@ $no_of_days = intval($days_diff->format('%d'));
                     </div>
                 </div>
                     
-                <div class="col-sm-2">
+                <!-- <div class="col-sm-2">
                     <div class="check-available">
                         <button class="btn btn-success" id="check-available-btn">Check Availability</button>
                     </div>
@@ -57,7 +57,7 @@ $no_of_days = intval($days_diff->format('%d'));
                     <div class="check-available">
                         <button class="btn btn-danger" id="check-available-btn">Promos and Discount</button>
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </div>

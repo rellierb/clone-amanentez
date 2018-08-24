@@ -70,7 +70,7 @@ $db = db_connection();
 
           $booking_query = "SELECT * FROM reservation WHERE reservation.client_id = $client_id";
           $result = mysqli_query($db, $booking_query);
-
+          
           echo '<table class="table">';
           if(mysqli_num_rows($result) == 1) {
             while($reservation_details = mysqli_fetch_assoc($result)) {

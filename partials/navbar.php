@@ -28,9 +28,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/amanentez-v1/suggestion/index.php">SUGGESTION</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="/amanentez-v1/account/index.php">ACCOUNT</a>
-            </li>
+            </li> -->
         </ul>
     </div>
 </nav>

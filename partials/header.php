@@ -43,7 +43,7 @@
     
 </head>
 <body class="animated fadeIn">
-    <div id="load_screen">
+    <!-- <div id="load_screen">
         <div id="loading" class="animated infinite fadeIn">
             <img src="../assets/images/amanentez-front.jpg" alt="Amanentez Background Picture" class="loading-img fadeIn">
             <div id="loading-progress">
@@ -51,4 +51,4 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->

@@ -73,7 +73,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $client_id = $db->insert_id;
     $_SESSION['client_id'] = $client_id;
   
-    $query = "INSERT INTO reservation(reference_no, check_in, check_out, client_id, person_count, type, payment, status, date_created) VALUES ('$reference_num', '$check_in_date', '$check_out_date', '$client_id', '$guest_number', '$reservation_type', '$payment_type' '$reservation_status' ,NOW())";
+    $query = "INSERT INTO reservation(reference_no, check_in, check_out, client_id, person_count, type, payment, status, date_created) VALUES ('$reference_num', '$check_in_date', '$check_out_date', '$client_id', '$guest_number', '$reservation_type', '$payment_type', '$reservation_status' ,NOW())";
     $result = mysqli_query($db, $query);
 
     $reservation_id = $db->insert_id;
@@ -107,7 +107,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       //   $_SESSION['email_error_msg'] = "There\'s an error processing your request";
       // }
 
-      header('Location: ../booking/success.php');
+     header('Location: ../booking/success.php');
 
     } else {
       $_SESSION["reservation_msg_error"] = "Booking cannot be processed";        
