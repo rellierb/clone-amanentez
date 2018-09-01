@@ -413,6 +413,43 @@ input[type*="radio"]:checked + label[for*="payment_type"] {
     margin: 0 auto;
 }
 
+.card-shadow {
+    box-shadow: 7px 7px 5px #ddd;
+}
+
+.see-details {
+    float: right;
+    position: relative;
+    top: 40%;
+}
+
+.comment {
+    text-align: center;
+    font-style: italic;
+    margin: 30px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

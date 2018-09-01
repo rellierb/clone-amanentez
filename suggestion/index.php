@@ -12,21 +12,21 @@ include('../partials/header.php');
 
   <div class="container">
     <div class="row">
-      <div class="col-5">
-      
-        <form action="../forms/suggesting.php" method="POST">
+      <div class="col-12">
+        <h4 class="text-center" style="padding-top: 100px;">Comments and Suggestion</h4>
+        <form action="../forms/suggesting.php" method="POST" class="col-5" style="display: block; margin: 0 auto; padding-bottom: 100px;">
           <div class="form-group">
             <label for="">Full Name</label>
-            <input type="text" class="form-control" id="" aria-describedby="emailHelp" name="fullName">
+            <input type="text" class="form-control" id="" name="fullName">
           </div>
           <div class="form-group">
             <label for="">Email</label>
-            <input type="email" class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter email" name="emailAddress">
+            <input type="email" class="form-control" id="" name="emailAddress">
           </div>
           
           <div class="form-group">
             <p>Rating</p>
-            <fieldset class="rating">
+            <fieldset class="rating" style="display: block; margin: 0 auto; padding: 0; float: left;">
                 <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
                 <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
                 <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
@@ -39,11 +39,13 @@ include('../partials/header.php');
                 <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
             </fieldset>
           </div>
+          <br>
+          <br>
           <div class="form-group">
             <label for="">Comment</label>
             <textarea class="form-control" id="" rows="3" name="comment"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" style="display: block;">Submit</button>
+          <button type="submit" class="btn btn-primary" style="display: block; float: right;">Submit</button>
 
           
         </form>
@@ -52,7 +54,11 @@ include('../partials/header.php');
     </div>
   </div>
 
+  <?php
 
+  include('../partials/company-details.php');
+
+  ?>
 
 <?php
 

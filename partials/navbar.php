@@ -14,10 +14,10 @@
                 <a class="nav-link" href="/amanentez-v1/home/index.php">HOME</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">ABOUT</a>
+                <a class="nav-link" href="/amanentez-v1/home/about.php">ABOUT</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">ROOMS</a>
+                <a class="nav-link" href="/amanentez-v1/home/rooms.php">ROOMS</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/amanentez-v1/booking/reserve.php">RESERVATION</a>
