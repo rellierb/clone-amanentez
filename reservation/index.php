@@ -10,7 +10,7 @@ include('../partials/header.php');
   
   ?>
 
-  <div class="container" id="view-reserve">
+  <div class="container-fluid" id="view-reserve">
     <h1>View Reservation</h1>
     <?php
     
@@ -21,10 +21,9 @@ include('../partials/header.php');
     ?>
     
       
-      <div class="row">  
-        
-        <div class="col-sm-12" style="padding-top: 20px;">
-          <div class="card">
+    <div class="row">  
+      <div class="col-sm-12" style="padding-top: 20px; height: 100vh;">
+        <div class="card">
           <form action="../forms/viewReserved.php" method="POST">
             <div class="form-group">
               <label for="referenceNo">Reference Number</label>
@@ -36,16 +35,19 @@ include('../partials/header.php');
             </div>
             <button class="btn btn-primary" type="submit" value="submit" style="float: right">Submit</button>
           </form>
-
-          </div>      
-          
-        </div>
-      </div>  
-    
-
-    
+        </div>      
+      </div>
+    </div>  
   </div>
 
+  <?php
+
+  include('../partials/company-details.php');
+
+  ?>
+
+
+  
 
 <?php
 

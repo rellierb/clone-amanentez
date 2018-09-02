@@ -34,13 +34,13 @@ $db = db_connection();
       <div class="col-sm-12" >
         <a href="../home/index.php" ><button class="btn btn-primary">Back to home</button></a>
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reBooking" style="float: right;">
-          Rebook Reservation
-        </button>
-
         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#cancelBooking" style="float: right;">
           Cancel Booking
         </button>
+
+        <a href="../reservation/rebook.php" class="btn btn-primary" style="float: right; margin-left: 10px; margin-top: 20px;">
+          Rebook Reservation
+        </a>
         
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadPhoto" style="float: right;">
           Upload payment
@@ -157,7 +157,7 @@ $db = db_connection();
             if(mysqli_num_rows($result) == 1) {
               while($photo = mysqli_fetch_assoc($result)) {
                 echo '
-                  <img class="center-img" style="margin-bottom: 20px;" src="../uploads/' . $photo["file_name"] . '" alt="Photo of a payment picture">
+                  <img class="center-img" style="margin-bottom: 20px; width: 100%;" src="../uploads/' . $photo["file_name"] . '" alt="Photo of a payment picture">
                   <p class="text-center"><b>Date uploaded: ' . $photo["date_created"] . '</b></p>
                 ';
               }
@@ -182,8 +182,9 @@ $db = db_connection();
             <tr>
               <th width="20%" class="text-center">Room Type</th>
               <th width="40%" class="text-center">Description</th>
-              <th width="15%" class="text-center">Unit Price</th>
-              <th width="15%" class="text-center">Quantity</th>
+              <th width="10%" class="text-center">Unit Price</th>
+              <th width="10%" class="text-center">Quantity</th>
+              <th width="10%" class="text-center">Days Reserve</th>
               <th width="15%" class="text-center">Total Price</th>
             </tr>
           </thead>
@@ -211,8 +212,9 @@ $db = db_connection();
             while($number_of_rooms = mysqli_fetch_assoc($room_result)) {
               // $rooms[] = $number_of_rooms;
               echo '<td class="text-center">' . $number_of_rooms['count(room_id)'] . '</td>';
-              echo '<td class="text-center">' . number_format($number_of_rooms['count(room_id)'] * $reservation_rooms['rate'], 2)   . '</td>';
-              $total_price += ($number_of_rooms['count(room_id)'] * $reservation_rooms['rate']);
+              echo '<td class="text-center">' . $no_of_days . '</td>';
+              echo '<td class="text-center">' . number_format($no_of_days * $number_of_rooms['count(room_id)'] * $reservation_rooms['rate'], 2)   . '</td>';
+              $total_price += ($number_of_rooms['count(room_id)'] * $reservation_rooms['rate'] * $no_of_days);
             }
           }
           //echo $reservation_rooms['type'] . ", "; 
@@ -222,6 +224,7 @@ $db = db_connection();
         echo '
           <tr>
             <td class="text-center"><b>Total Amount</b></td>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>

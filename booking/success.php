@@ -131,8 +131,9 @@ $db = db_connection();
               <tr>
                 <th width="20%" class="text-center">Room Type</th>
                 <th width="40%" class="text-center">Description</th>
-                <th width="15%" class="text-center">Unit Price</th>
-                <th width="15%" class="text-center">Quantity</th>
+                <th width="10%" class="text-center">Unit Price</th>
+                <th width="10%" class="text-center">Quantity</th>
+                <th width="10%" class="text-center">Days Reserve</th>
                 <th width="15%" class="text-center">Total Price</th>
               </tr>
             </thead>
@@ -151,8 +152,9 @@ $db = db_connection();
               echo '<td class="text-center">'.$reservation_rooms['simple_description'].'</td>';
               echo '<td class="text-center">'. number_format($reservation_rooms['rate'], 2).'</td>';
               echo '<td class="text-center">'.$_SESSION['roomsReserved'][$reservation_rooms['id']].'</td>';
+              echo '<td class="text-center">'.$_SESSION['days_book'].'</td>';
               // $roomsBooked[] =  $_SESSION['roomsReserved'][$reservation_rooms['id']]. " " .$reservation_rooms['type'];
-              echo '<td class="text-center">'. number_format($reservation_rooms['rate'] * $_SESSION['roomsReserved'][$reservation_rooms['id']], 2).'</td>';
+              echo '<td class="text-center">'. number_format($_SESSION['days_book'] * $reservation_rooms['rate'] * $_SESSION['roomsReserved'][$reservation_rooms['id']], 2).'</td>';
               $total_price += ($reservation_rooms['rate'] * $_SESSION['roomsReserved'][$reservation_rooms['id']]);
             }
             echo '</tr>';
@@ -160,6 +162,7 @@ $db = db_connection();
             echo '
               <tr>
                 <td class="text-center"><b>Total Amount</b></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>

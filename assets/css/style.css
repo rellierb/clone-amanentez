@@ -101,7 +101,7 @@ ul.navbar-nav> li.nav-item > a.nav-link {
 }
 
 #datepicker {
-    padding-left: 15%;
+    padding-left: 23%;
 }
 
 #guest_count {
@@ -113,16 +113,16 @@ ul.navbar-nav> li.nav-item > a.nav-link {
 }
 
 div.landing-booking:nth-of-type(1) {
-    width: 27%;
+    width: 60%;
 }
 
 div.landing-booking:nth-of-type(2) {
-    width: 47%;
+    width: 35%;
 }
-
+/* 
 div.landing-booking:nth-of-type(3) {
     width: 20%;
-}
+} */
 
 .nav-item {
     margin-right: 20px;
@@ -177,7 +177,7 @@ div.landing-booking:nth-of-type(3) {
 .footer-bg-color {
     background-color: rgba(52,152,219, .9);
     padding-top: 30px;
-    height: 30vh;
+    height: 25vh;
     width: 100%;
 }
 
@@ -246,6 +246,7 @@ h5 > i.fas {
     margin-right: 0px;
     box-shadow: 7px 7px 5px #ddd;
     transition: 2s ease-out;
+    margin-bottom: 35px;
 }
 
 p.price {
@@ -257,9 +258,8 @@ p.price {
 }
 
 .select-room-btn {
-    position: absolute;
-    width: 88%;
-    bottom: 0;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .room-form small, .room-form p {
@@ -428,6 +428,18 @@ input[type*="radio"]:checked + label[for*="payment_type"] {
     font-style: italic;
     margin: 30px 0;
 }
+
+#view-reserve h1 {
+    position: absolute;
+    top: 17%;
+    display: block;
+    margin: 0 auto;
+}
+
+#view-reserve div.card {
+    top: 150px;
+}
+
 
 
 

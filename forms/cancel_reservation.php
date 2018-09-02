@@ -33,11 +33,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_SESSION['msg_cancel_failed'] = "Your reservation is not cancelled";
       print_r($_SESSION['msg_cancel_failed']);
     }
-
-    
-
-
   }
-
-
+  
 }

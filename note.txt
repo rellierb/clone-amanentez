@@ -19,6 +19,3 @@
 * rebooking - payment confirmation first status
 
 * friday or weekend reservation/payment, booking monday
-
-
-
